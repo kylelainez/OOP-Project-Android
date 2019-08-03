@@ -21,8 +21,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {                                             //On Application Start-up
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toast.makeText(MainActivity.this,"Test Toast",Toast.LENGTH_LONG).show();
-
         if(isServiceOK()){
             init();
         }

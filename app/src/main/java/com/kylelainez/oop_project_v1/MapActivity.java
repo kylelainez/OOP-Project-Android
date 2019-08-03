@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.Manifest;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -21,6 +22,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
@@ -36,6 +38,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private FusedLocationProviderClient fusedLocationProviderClient;
     private ImageButton locationButton;
+    private Button restaurants;
 
 
     @Override
@@ -43,17 +46,27 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate: Opening the map");
         setContentView(R.layout.activity_map);
+
         locationButton = findViewById(R.id.location);
-        locationButton.setOnClickListener(new View.OnClickListener() {
+        locationButton.setOnClickListener(new View.OnClickListener() {                               //Location Button
             @Override
             public void onClick(View view) {
                 getDeviceLocation();
             }
         });
+        restaurants = findViewById(R.id.restaurants);
+        restaurants.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showRestaurants();
+            }
+        });
+
         getLocationPermission();
-
     }
-
+    public void showRestaurants(){
+        MapLocations getLocations = new MapLocations(0,mMap);
+    }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {                                                    // Starts the Google Maps API
@@ -62,10 +75,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         Log.d(TAG, "onMapReady: Map is ready");
 
         if (LocationPermissionGranted) {
-            Toast.makeText(MapActivity.this, "Getting Location",
-                    Toast.LENGTH_LONG).show();
-            getDeviceLocation();
-
+            moveCameraLocation(new LatLng(14.598815, 121.005397),15f);
             if (ActivityCompat.checkSelfPermission(this,                                      //Checks Permission for Location
                     Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                     && ActivityCompat.checkSelfPermission(this,
