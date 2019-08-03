@@ -10,6 +10,8 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.Manifest;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -30,11 +32,10 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     private static final String COURSE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
     private static final int Request_Code = 1234;
     private static final float DefaultZoom = 20f;
-
     private Boolean LocationPermissionGranted = false;
-
     private GoogleMap mMap;
     private FusedLocationProviderClient fusedLocationProviderClient;
+    private ImageButton locationButton;
 
 
     @Override
@@ -42,10 +43,17 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate: Opening the map");
         setContentView(R.layout.activity_map);
-
+        locationButton = findViewById(R.id.location);
+        locationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getDeviceLocation();
+            }
+        });
         getLocationPermission();
 
     }
+
 
     @Override
     public void onMapReady(GoogleMap googleMap) {                                                    // Starts the Google Maps API
@@ -100,7 +108,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     private void moveCameraLocation(LatLng latLng, float zoom){                                      //Moves Camera to target
         Log.d(TAG, "moveCameraLocation: Moving Camera to location");
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoom));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoom));
     }
 
     private void getLocationPermission(){                                                            //Gets Permissions for
