@@ -12,9 +12,9 @@ public class MapLocations {
     private Marker convenienceStore[]= new Marker[1];
     private GoogleMap googleMap ;
 
-    public MapLocations(int x, GoogleMap maps) {
+    public MapLocations(String string, GoogleMap maps) {
         googleMap = maps;
-        if (x==0) {
+        if (string.equals("restaurants")) {
             restaurants[0] = googleMap.addMarker(new MarkerOptions()
                     .position(new LatLng(14.601379, 121.004622))
                     .anchor(0.5f, 0.5f)

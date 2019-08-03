@@ -22,7 +22,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
@@ -65,13 +65,16 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         getLocationPermission();
     }
     public void showRestaurants(){
-        MapLocations getLocations = new MapLocations(0,mMap);
+        MapLocations getLocations = new MapLocations("restaurants",mMap);
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {                                                    // Starts the Google Maps API
         Toast.makeText(MapActivity.this, "Map is Ready", Toast.LENGTH_LONG).show();
         mMap = googleMap;
+        googleMap.setMapStyle(
+                MapStyleOptions.loadRawResourceStyle(
+                        this, R.raw.style_json));
         Log.d(TAG, "onMapReady: Map is ready");
 
         if (LocationPermissionGranted) {
