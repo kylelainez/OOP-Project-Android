@@ -23,7 +23,7 @@
             android:value="@integer/google_play_services_version" />
         <meta-data
         android:name="com.google.android.geo.API_KEY"
-        android:value="AIzaSyDo0cZlhL6Olr2jI-g4_Kdz_bJrlE7fZSU"/> <!-- API Key for Google Maps Services -->
+        android:value="API KEY HERE"/> <!-- API Key for Google Maps Services -->
         <activity android:name=".MainActivity"
             android:screenOrientation="portrait">
 
