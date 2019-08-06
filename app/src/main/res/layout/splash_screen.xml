@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#6877FF">
+    android:background="@color/colorPrimary">
 
     <ImageView
         android:id="@+id/spotit_logo"
@@ -30,9 +30,10 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="COLLEGE OF ENGINEERING AND ARCHITECHTURE"
+        android:text="@string/cea"
         android:textColor="@android:color/white"
-        android:textSize="11.23dp"
+        android:fontFamily="@font/worksans_light"
+        android:textSize="11sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.522"
@@ -47,6 +48,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:src="@drawable/ic_pup_logo"
+        android:contentDescription="@string/pup_logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

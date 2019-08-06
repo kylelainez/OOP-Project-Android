@@ -1,4 +1,25 @@
 <resources>
     <string name="app_name">OOP_PROJECT_V1</string>
     <string name="GoogleMapsAPI_Key">AIzaSyDo0cZlhL6Olr2jI-g4_Kdz_bJrlE7fZSU</string>
+    <string name="cea">COLLEGE OF ENGINEERING AND ARCHITECTURE</string>
+    
+    <string name="pup_logo">this is the PUP logo</string>
+
+    <string name="signup_title">Sign Up</string>
+    <string name="signup_email_hint">Email Address</string>
+    <string name="signup_password_hint">Password</string>
+    <string name="signup_password_description">Password must contain at least 1 number and be a minimum of 8 characters long.</string>
+    <string name="signup_continue">Continue</string>
+
+    <string name="name">Juan Dela Cruz</string>
+    <string name="phone_number">+63 915 189 6253</string>
+    <string name="credit_points">Credit points: 12</string>
+    <string name="home_title">Home</string>
+    <string name="services_title">Services</string>
+    <string name="menu_bar">Click to view slide menu</string>
+    <string name="logo">LOGO</string>
+    <string name="notif_icon">Click to view notifications</string>
+    <string name="profile_picture">This is the profile picture</string>
+    <string name="full_profile">Full profile</string>
+    <string name="search">Search bar</string>
 </resources>
