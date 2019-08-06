@@ -36,7 +36,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
+    public void Try(){
+        System.out.println("Hello");
+    }
 
     public boolean isServiceOK(){                                                                    //Checks whether all Services
         Log.d(TAG, "isServiceOK: Checking Google Services Version");                            //Are up to date and working
