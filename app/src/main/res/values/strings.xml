@@ -22,4 +22,8 @@
     <string name="profile_picture">This is the profile picture</string>
     <string name="full_profile">Full profile</string>
     <string name="search">Search bar</string>
+
+    <string name="botnav1">one</string>
+    <string name="botnav2">two</string>
+    <string name="botnav3">three</string>
 </resources>
