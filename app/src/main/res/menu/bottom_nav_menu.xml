@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_one"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="@string/botnav1" />
+
+    <item
+        android:id="@+id/navigation_two"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="@string/botnav2" />
+
+    <item
+        android:id="@+id/navigation_three"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="@string/botnav3" />
+
+</menu>
