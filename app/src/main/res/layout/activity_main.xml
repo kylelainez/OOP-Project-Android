@@ -20,20 +20,20 @@
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:background="?android:attr/windowBackground"
-        android:visibility="visible"
         android:elevation="5dp"
+        android:visibility="visible"
         app:itemBackground="@color/colorPrimary"
         app:itemIconTint="@color/white"
         app:itemTextColor="@color/colorPrimary"
         app:menu="@menu/bottom_nav_menu" />
 
     <FrameLayout
-        android:layout_above="@+id/nav_view"
+        android:id="@+id/frame_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/frame_container"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        />
+        android:layout_above="@+id/nav_view"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
     <Button
         android:id="@+id/MapBtn"
         android:layout_width="wrap_content"

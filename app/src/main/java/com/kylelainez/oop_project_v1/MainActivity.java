@@ -10,10 +10,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -44,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     Fragment fragment = null;
-                    switch (item.getItemId()){
+                    switch (item.getItemId()) {
                         case R.id.home_navigation:
                             fragment = new HomeFragment();
                             break;
@@ -56,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                             break;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.frame_container,
-                    fragment).commit();
+                            fragment).commit();
                     return true;
                 }
             };
