@@ -3,17 +3,18 @@ package com.kylelainez.oop_project_v1;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.Manifest;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -38,14 +39,18 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private FusedLocationProviderClient fusedLocationProviderClient;
     private ImageButton locationButton;
-    private Button restaurants;
+    private Button restaurants,laundry,internetCafe,convenienceStore;
+    private Boolean restaurantState = false;
+    private Boolean laundryState = false;
+    private Boolean convenienceStoresState = false;
+    private Boolean internetCafeState = false;
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {                                   //Opens the Map Layout Activity
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate: Opening the map");
-        setContentView(R.layout.activity_map);
+        setContentView(R.layout.fragment_map);
 
         locationButton = findViewById(R.id.location);
         locationButton.setOnClickListener(new View.OnClickListener() {                               //Location Button
@@ -55,17 +60,65 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             }
         });
         restaurants = findViewById(R.id.restaurants);
+        laundry = findViewById(R.id.laundry);
+        internetCafe = findViewById(R.id.internetCafe);
+        convenienceStore =  findViewById(R.id.convenienceStore);
         restaurants.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showRestaurants();
+                if(restaurantState==false) {
+                    MapLocations getLocations = new MapLocations("restaurants",mMap,1);
+                    restaurantState = true;
+                }else {
+                    MapLocations getLocations = new MapLocations("restaurants",mMap,0);
+                    restaurantState = false;
+                }
+
+            }
+        });
+        laundry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(laundryState==false) {
+                    MapLocations getLocations = new MapLocations("laundry",mMap,1);
+                    laundryState = true;
+                }else {
+                    MapLocations getLocations = new MapLocations("laundry",mMap,0);
+                    laundryState = false;
+                }
+
+            }
+        });
+        internetCafe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(internetCafeState==false) {
+                    MapLocations getLocations = new MapLocations("internetCafe",mMap,1);
+                    internetCafeState = true;
+                }else {
+                    MapLocations getLocations = new MapLocations("internetCafe",mMap,0);
+                    internetCafeState = false;
+                }
+
+            }
+        });
+        convenienceStore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(convenienceStoresState==false) {
+                    MapLocations getLocations = new MapLocations("convenienceStore",mMap,1);
+                    convenienceStoresState = true;
+                }else {
+                    MapLocations getLocations = new MapLocations("convenienceStore",mMap,0);
+                    convenienceStoresState = false;
+                }
+
             }
         });
 
+
+
         getLocationPermission();
-    }
-    public void showRestaurants(){
-        MapLocations getLocations = new MapLocations("restaurants",mMap);
     }
 
     @Override

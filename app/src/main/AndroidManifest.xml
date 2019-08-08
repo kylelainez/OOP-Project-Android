@@ -27,6 +27,7 @@
         android:name="com.google.android.geo.API_KEY"
         android:value="AIzaSyAzubNBFZFjEpANBS6GQyljFOtxbcWgjW8"/> <!-- API Key for Google Maps Services -->
         <activity android:name=".MainActivity"
+            android:theme="@style/SplashTheme"
             android:screenOrientation="portrait">
 
             <intent-filter>
