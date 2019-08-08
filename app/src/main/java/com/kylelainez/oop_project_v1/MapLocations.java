@@ -6,14 +6,15 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapLocations {
-    private Marker restaurants[]  = new Marker[5];
-    private Marker internetCafe[]= new Marker[1];
-    private Marker laundry[]= new Marker[1];
-    private Marker convenienceStore[]= new Marker[1];
-    private GoogleMap googleMap ;
+    private Marker restaurants[] = new Marker[5];
+    private Marker internetCafe[] = new Marker[1];
+    private Marker laundry[] = new Marker[1];
+    private Marker convenienceStore[] = new Marker[1];
+    private GoogleMap googleMap;
 
-    public MapLocations(String string, GoogleMap maps,int testInt) {
+    public MapLocations(String string, GoogleMap maps, boolean test) {
         googleMap = maps;
+
         if (string.equals("restaurants")) {
             googleMap.clear();
             restaurants[0] = googleMap.addMarker(new MarkerOptions()
@@ -66,6 +67,7 @@ public class MapLocations {
                     .title("7-Eleven Pureza")
                     .snippet("Open 24 Hours"));
         }
-        }
+    }
+
 
 }

@@ -39,7 +39,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private FusedLocationProviderClient fusedLocationProviderClient;
     private ImageButton locationButton;
-    private Button restaurants,laundry,internetCafe,convenienceStore;
+    private Button restaurants, laundry, internetCafe, convenienceStore;
     private Boolean restaurantState = false;
     private Boolean laundryState = false;
     private Boolean convenienceStoresState = false;
@@ -62,15 +62,16 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         restaurants = findViewById(R.id.restaurants);
         laundry = findViewById(R.id.laundry);
         internetCafe = findViewById(R.id.internetCafe);
-        convenienceStore =  findViewById(R.id.convenienceStore);
+        convenienceStore = findViewById(R.id.convenienceStore);
+
         restaurants.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                if(restaurantState==false) {
-                    MapLocations getLocations = new MapLocations("restaurants",mMap,1);
+            public void onClick(View view) {                                                    //onClick listeners for displaying Map Markers
+                if (restaurantState == false) {
+                    MapLocations getLocations = new MapLocations("restaurants", mMap, false); //Generates Markers
                     restaurantState = true;
-                }else {
-                    MapLocations getLocations = new MapLocations("restaurants",mMap,0);
+                } else {
+                    MapLocations getLocations = new MapLocations("restaurants", mMap, true); //Clears Markers
                     restaurantState = false;
                 }
 
@@ -79,11 +80,11 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         laundry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(laundryState==false) {
-                    MapLocations getLocations = new MapLocations("laundry",mMap,1);
+                if (laundryState == false) {
+                    MapLocations getLocations = new MapLocations("laundry", mMap, false);
                     laundryState = true;
-                }else {
-                    MapLocations getLocations = new MapLocations("laundry",mMap,0);
+                } else {
+                    MapLocations getLocations = new MapLocations("laundry", mMap, true);
                     laundryState = false;
                 }
 
@@ -92,11 +93,11 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         internetCafe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(internetCafeState==false) {
-                    MapLocations getLocations = new MapLocations("internetCafe",mMap,1);
+                if (internetCafeState == false) {
+                    MapLocations getLocations = new MapLocations("internetCafe", mMap, false);
                     internetCafeState = true;
-                }else {
-                    MapLocations getLocations = new MapLocations("internetCafe",mMap,0);
+                } else {
+                    MapLocations getLocations = new MapLocations("internetCafe", mMap, true);
                     internetCafeState = false;
                 }
 
@@ -105,17 +106,16 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         convenienceStore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(convenienceStoresState==false) {
-                    MapLocations getLocations = new MapLocations("convenienceStore",mMap,1);
+                if (convenienceStoresState == false) {
+                    MapLocations getLocations = new MapLocations("convenienceStore", mMap, false);
                     convenienceStoresState = true;
-                }else {
-                    MapLocations getLocations = new MapLocations("convenienceStore",mMap,0);
+                } else {
+                    MapLocations getLocations = new MapLocations("convenienceStore", mMap, true);
                     convenienceStoresState = false;
                 }
 
             }
         });
-
 
 
         getLocationPermission();
@@ -131,7 +131,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         Log.d(TAG, "onMapReady: Map is ready");
 
         if (LocationPermissionGranted) {
-            moveCameraLocation(new LatLng(14.598815, 121.005397),15f);
+            moveCameraLocation(new LatLng(14.598815, 121.005397), 18f);
             if (ActivityCompat.checkSelfPermission(this,                                      //Checks Permission for Location
                     Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                     && ActivityCompat.checkSelfPermission(this,
@@ -144,62 +144,62 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         }
     }
 
-    public void getDeviceLocation(){                                                                 //User Location
+    public void getDeviceLocation() {                                                                 //User Location
         Log.d(TAG, "getDeviceLocation: Getting the devices current location");
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
-        try{
-            if (LocationPermissionGranted){
+        try {
+            if (LocationPermissionGranted) {
                 Task location = fusedLocationProviderClient.getLastLocation();
                 location.addOnCompleteListener(new OnCompleteListener() {
                     @Override
-                    public void onComplete(@NonNull Task task) {                                     //Gets the Current User Location
+                    public void onComplete(@NonNull Task task) {                                             //Gets the Current User Location
                         if (task.isSuccessful()) {
                             Log.d(TAG, "onComplete: Location found");
                             Location currentLocation = (Location) task.getResult();
 
                             moveCameraLocation(new LatLng(currentLocation.getLatitude(),             //Moves Camera to Current Location
-                                    currentLocation.getLongitude()),DefaultZoom);
-                        }else {
+                                    currentLocation.getLongitude()), DefaultZoom);
+                        } else {
                             Log.d(TAG, "onComplete: Current Location could not be detected");
                             Toast.makeText(MapActivity.this, "Unable to reach the current" +
-                                    " location of the device",Toast.LENGTH_SHORT).show();
+                                    " location of the device", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
             }
-        }catch (SecurityException e){
+        } catch (SecurityException e) {
             Log.e(TAG, "getDeviceLocation: Security Exception" + e.getMessage());
         }
     }
 
-    private void moveCameraLocation(LatLng latLng, float zoom){                                      //Moves Camera to target
+    private void moveCameraLocation(LatLng latLng, float zoom) {                                      //Moves Camera to target
         Log.d(TAG, "moveCameraLocation: Moving Camera to location");
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoom));
     }
 
-    private void getLocationPermission(){                                                            //Gets Permissions for
+    private void getLocationPermission() {                                                            //Gets Permissions for
         Log.d(TAG, "getLocationPermission: Entered Permission Request");                        // Maps Usage
         String[] permissions = {Manifest.permission.ACCESS_FINE_LOCATION,
                 Manifest.permission.ACCESS_COARSE_LOCATION};
 
         if (ContextCompat.checkSelfPermission(this.getApplicationContext(),
-                FINE_LOCATION)==PackageManager.PERMISSION_GRANTED){
+                FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             if (ContextCompat.checkSelfPermission(this.getApplicationContext(),
-                    COURSE_LOCATION)==PackageManager.PERMISSION_GRANTED){
+                    COURSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                 LocationPermissionGranted = true;
                 Log.d(TAG, "getLocationPermission: Permission is granted");
                 initMap();
-            }else{
+            } else {
                 Log.d(TAG, "getLocationPermission: App Course Permission is declined");
-                ActivityCompat.requestPermissions(this,permissions,Request_Code);
+                ActivityCompat.requestPermissions(this, permissions, Request_Code);
             }
-        }else{
+        } else {
             Log.d(TAG, "getLocationPermission: App Fine Permission is declined");
-            ActivityCompat.requestPermissions(this,permissions,Request_Code);
+            ActivityCompat.requestPermissions(this, permissions, Request_Code);
         }
     }
 
-    private void initMap(){                                                                          //Initializes the map
+    private void initMap() {                                                                          //Initializes the map
         Log.d(TAG, "initMap: Initializing the map...");
         final SupportMapFragment mapFragment = (SupportMapFragment)
                 getSupportFragmentManager().findFragmentById(R.id.map);
@@ -212,11 +212,11 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                                            @NonNull int[] grantResults) {                            //Granted
         LocationPermissionGranted = false;
 
-        switch (requestCode){
-            case Request_Code:{
-                if (grantResults.length>0){
-                    for(int i=0; i<grantResults.length;i++){
-                        if(grantResults[i] != PackageManager.PERMISSION_GRANTED){
+        switch (requestCode) {
+            case Request_Code: {
+                if (grantResults.length > 0) {
+                    for (int i = 0; i < grantResults.length; i++) {
+                        if (grantResults[i] != PackageManager.PERMISSION_GRANTED) {
                             LocationPermissionGranted = false;
                             Log.d(TAG, "onRequestPermissionsResult: Permission Failed");
                             return;
