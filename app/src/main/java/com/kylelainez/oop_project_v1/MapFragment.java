@@ -9,10 +9,23 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class MapFragment extends Fragment {
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+
+public class MapFragment extends Fragment  implements OnMapReadyCallback {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.map_fragment, container, false);
+        View view = inflater.inflate(R.layout.map_fragment, container, false);
+
+
+        return view;
     }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+
+    }
+
+
 }

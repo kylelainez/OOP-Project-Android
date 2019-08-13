@@ -1,12 +1,9 @@
 package com.kylelainez.oop_project_v1;
 
 import android.app.Dialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -29,9 +26,6 @@ public class MainActivity extends AppCompatActivity {
         setTheme(R.style.AppTheme_NoActionBar);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if (isServiceOK()) {
-            init();
-        }
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.nav_view);
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
@@ -59,16 +53,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             };
 
-    public void init() {                                                                             //Initializes the button for opening map
-        Button MapBtn = findViewById(R.id.MapBtn);
-        MapBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, MapActivity.class);
-                startActivity(intent);
-            }
-        });
-    }
 
     public boolean isServiceOK() {                                                                   //Checks whether all Services
         Log.d(TAG, "isServiceOK: Checking Google Services Version");                            //Are up to date and working

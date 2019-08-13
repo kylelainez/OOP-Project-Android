@@ -11,7 +11,6 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -45,12 +44,10 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     private Boolean convenienceStoresState = false;
     private Boolean internetCafeState = false;
 
-
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {                                   //Opens the Map Layout Activity
+    protected void onCreate( Bundle savedInstanceState) {                                   //Opens the Map Layout Activity
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate: Opening the map");
-        setContentView(R.layout.fragment_map);
 
         locationButton = findViewById(R.id.location);
         locationButton.setOnClickListener(new View.OnClickListener() {                               //Location Button
@@ -177,7 +174,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoom));
     }
 
-    private void getLocationPermission() {                                                            //Gets Permissions for
+    public void getLocationPermission() {                                                            //Gets Permissions for
         Log.d(TAG, "getLocationPermission: Entered Permission Request");                        // Maps Usage
         String[] permissions = {Manifest.permission.ACCESS_FINE_LOCATION,
                 Manifest.permission.ACCESS_COARSE_LOCATION};
