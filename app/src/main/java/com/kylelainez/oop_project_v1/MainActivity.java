@@ -1,6 +1,8 @@
 package com.kylelainez.oop_project_v1;
 
+import android.Manifest;
 import android.app.Dialog;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -8,6 +10,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 
@@ -21,14 +25,22 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     private static final int ERROR_Dialog_Request = 9001;
 
+    private static final String FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
+    private static final String COURSE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
+    private static final int Request_Code = 1234;
+    private static final float DefaultZoom = 20f;
+    public Boolean LocationPermissionGranted = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {                                             //On Application Start-up
         setTheme(R.style.AppTheme_NoActionBar);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         BottomNavigationView bottomNavigationView = findViewById(R.id.nav_view);
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
+
+        isServiceOK();
+        getLocationPermission();
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener =
@@ -72,4 +84,26 @@ public class MainActivity extends AppCompatActivity {
         }
         return false;
     }
+
+    public void getLocationPermission() {                                                            //Gets Permissions for
+        Log.d(TAG, "getLocationPermission: Entered Permission Request");                        // Maps Usage
+        String[] permissions = {Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_COARSE_LOCATION};
+
+        if (ContextCompat.checkSelfPermission(this.getApplicationContext(),
+                FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            if (ContextCompat.checkSelfPermission(this.getApplicationContext(),
+                    COURSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                LocationPermissionGranted = true;
+                Log.d(TAG, "getLocationPermission: Permission is granted");
+            } else {
+                Log.d(TAG, "getLocationPermission: App Course Permission is declined");
+                ActivityCompat.requestPermissions(this, permissions, Request_Code);
+            }
+        } else {
+            Log.d(TAG, "getLocationPermission: App Fine Permission is declined");
+            ActivityCompat.requestPermissions(this, permissions, Request_Code);
+        }
+    }
+
 }

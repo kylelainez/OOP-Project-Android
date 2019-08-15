@@ -45,7 +45,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     private Boolean internetCafeState = false;
 
     @Override
-    protected void onCreate( Bundle savedInstanceState) {                                   //Opens the Map Layout Activity
+    protected void onCreate( Bundle savedInstanceState) {                                            //Opens the Map Layout Activity
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate: Opening the map");
 
