@@ -33,8 +33,11 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     private FusedLocationProviderClient fusedLocationProviderClient;
     private MainActivity mainActivity;
     private static final float DefaultZoom = 20f;
-    private Button button1;
+    private Button restaurants, laundry, internetCafe, convenienceStore;
     private Boolean restaurantState = false;
+    private Boolean laundryState = false;
+    private Boolean convenienceStoresState = false;
+    private Boolean internetCafeState = false;
 
 
     @Override
@@ -51,8 +54,13 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.map_fragment, container, false);
         mainActivity = new MainActivity();
-        button1 = view.findViewById(R.id.restaurants);
-        button1.setOnClickListener(new View.OnClickListener() {
+
+        restaurants = view.findViewById(R.id.restaurants);
+        laundry = view.findViewById(R.id.laundry);
+        internetCafe = view.findViewById(R.id.internetCafe);
+        convenienceStore = view.findViewById(R.id.convenienceStore);
+
+        restaurants.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (restaurantState == false) {
@@ -64,6 +72,47 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                 }
             }
         });
+        laundry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (laundryState == false) {
+                    MapLocations getLocations = new MapLocations("laundry", map, false);
+                    laundryState = true;
+                } else {
+                    MapLocations getLocations = new MapLocations("laundry", map, true);
+                    laundryState = false;
+                }
+
+            }
+        });
+        internetCafe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (internetCafeState == false) {
+                    MapLocations getLocations = new MapLocations("internetCafe", map, false);
+                    internetCafeState = true;
+                } else {
+                    MapLocations getLocations = new MapLocations("internetCafe", map, true);
+                    internetCafeState = false;
+                }
+
+            }
+        });
+        convenienceStore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (convenienceStoresState == false) {
+                    MapLocations getLocations = new MapLocations("convenienceStore", map, false);
+                    convenienceStoresState = true;
+                } else {
+                    MapLocations getLocations = new MapLocations("convenienceStore", map, true);
+                    convenienceStoresState = false;
+                }
+
+            }
+        });
+
+
         return view;
     }
 
