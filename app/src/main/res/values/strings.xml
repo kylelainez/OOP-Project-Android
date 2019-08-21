@@ -4,6 +4,7 @@
     <string name="cea">COLLEGE OF ENGINEERING AND ARCHITECTURE</string>
     
     <string name="pup_logo">this is the PUP logo</string>
+    <string name="login">Login Text</string>
 
     <string name="signup_title">Sign Up</string>
     <string name="signup_email_hint">Email Address</string>
