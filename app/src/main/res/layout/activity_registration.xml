@@ -58,23 +58,23 @@
         app:layout_constraintTop_toBottomOf="@+id/loginText"
         app:layout_constraintVertical_bias="0.24" />
 
-    <!--<EditText-->
-        <!--android:id="@+id/username2"-->
-        <!--android:layout_width="383dp"-->
-        <!--android:layout_height="66dp"-->
-        <!--android:layout_marginStart="8dp"-->
-        <!--android:layout_marginTop="8dp"-->
-        <!--android:layout_marginEnd="8dp"-->
-        <!--android:layout_marginBottom="8dp"-->
-        <!--android:ems="10"-->
-        <!--android:hint="Username"-->
-        <!--android:inputType="textPersonName"-->
-        <!--app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--app:layout_constraintEnd_toEndOf="parent"-->
-        <!--app:layout_constraintHorizontal_bias="0.166"-->
-        <!--app:layout_constraintStart_toStartOf="parent"-->
-        <!--app:layout_constraintTop_toBottomOf="@+id/loginText"-->
-        <!--app:layout_constraintVertical_bias="0.078" />-->
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="383dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.166"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginText"
+        app:layout_constraintVertical_bias="0.078" />
 
     <EditText
         android:id="@+id/password"
@@ -94,6 +94,24 @@
         app:layout_constraintTop_toBottomOf="@+id/emailAddress"
         app:layout_constraintVertical_bias="0.0" />
 
+    <EditText
+        android:id="@+id/password2"
+        android:layout_width="383dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.166"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailAddress"
+        app:layout_constraintVertical_bias="0.27" />
+
     <ImageButton
         android:id="@+id/createAcct"
         android:layout_width="wrap_content"
@@ -109,7 +127,7 @@
         app:srcCompat="@drawable/next_button" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/signupBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
