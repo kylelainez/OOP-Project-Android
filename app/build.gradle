@@ -22,9 +22,18 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'com.google.android.material:material:1.1.0-alpha09'
+<<<<<<< HEAD
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+=======
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+>>>>>>> a7f0d47ce79189fe24c9593ef4d758ad09fbba28
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.google.android.gms:play-services:12.0.1'
+<<<<<<< HEAD
+=======
+    implementation 'com.google.android.material:material:1.0.0-rc01'
+>>>>>>> a7f0d47ce79189fe24c9593ef4d758ad09fbba28
 }

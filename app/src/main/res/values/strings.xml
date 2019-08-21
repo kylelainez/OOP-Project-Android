@@ -2,7 +2,7 @@
     <string name="app_name">OOP_PROJECT_V1</string>
     <string name="GoogleMapsAPI_Key">AIzaSyDo0cZlhL6Olr2jI-g4_Kdz_bJrlE7fZSU</string>
     <string name="cea">COLLEGE OF ENGINEERING AND ARCHITECTURE</string>
-    
+
     <string name="pup_logo">this is the PUP logo</string>
     <string name="login">Login Text</string>
 
@@ -24,7 +24,7 @@
     <string name="full_profile">Full profile</string>
     <string name="search">Search bar</string>
 
-    <string name="botnav1">one</string>
-    <string name="botnav2">two</string>
-    <string name="botnav3">three</string>
+    <string name="botnav1">Maps</string>
+    <string name="botnav2">Home</string>
+    <string name="botnav3">Profile</string>
 </resources>
