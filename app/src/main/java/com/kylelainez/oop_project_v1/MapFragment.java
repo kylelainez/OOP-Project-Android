@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -34,6 +35,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     private MainActivity mainActivity;
     private static final float DefaultZoom = 20f;
     private Button restaurants, laundry, internetCafe, convenienceStore;
+    private ImageButton location;
     private Boolean restaurantState = false;
     private Boolean laundryState = false;
     private Boolean convenienceStoresState = false;
@@ -59,6 +61,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         laundry = view.findViewById(R.id.laundry);
         internetCafe = view.findViewById(R.id.internetCafe);
         convenienceStore = view.findViewById(R.id.convenienceStore);
+        location = view.findViewById(R.id.location);
 
         restaurants.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,7 +114,12 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
             }
         });
-
+        location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getDeviceLocation();
+            }
+        });
 
         return view;
     }
@@ -129,7 +137,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         }
         map.setMyLocationEnabled(true);
         map.getUiSettings().setMyLocationButtonEnabled(false);
-        moveCameraLocation(new LatLng(14.598815, 121.005397), 18f);
+        moveCameraLocation(new LatLng(14.598815, 121.005397), 17f);
     }
 
     private void moveCameraLocation(LatLng latLng, float zoom) {
