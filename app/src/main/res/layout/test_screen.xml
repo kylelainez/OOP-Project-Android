@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
 <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-=======
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
->>>>>>> a7f0d47ce79189fe24c9593ef4d758ad09fbba28
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:windowSoftInputMode="adjustResize">
@@ -66,15 +63,12 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginStart="@dimen/d2"
-        android:layout_marginTop="@dimen/d2"
+        android:layout_marginTop="180dp"
         android:layout_marginEnd="@dimen/d2"
         android:text="@string/signup_continue"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-<<<<<<< HEAD
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="@+id/emailAddress" />
 </androidx.constraintlayout.widget.ConstraintLayout>
-=======
-        app:layout_constraintTop_toBottomOf="@+id/passwordDescription" />
-</android.support.constraint.ConstraintLayout>
->>>>>>> a7f0d47ce79189fe24c9593ef4d758ad09fbba28
+

@@ -2,12 +2,9 @@ package com.kylelainez.oop_project_v1;
 
 import android.Manifest;
 import android.app.Dialog;
-<<<<<<< HEAD
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
-=======
 import android.content.pm.PackageManager;
->>>>>>> a7f0d47ce79189fe24c9593ef4d758ad09fbba28
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
