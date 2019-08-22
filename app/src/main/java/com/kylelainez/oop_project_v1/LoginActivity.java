@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,8 +20,8 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
     EditText emailId, password;
-    Button btnSignIn;
-    TextView tvSignUp;
+    ImageButton btnSignIn, tvSignUp;
+//    TextView tvSignUp;
     FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
 
@@ -31,8 +33,8 @@ public class LoginActivity extends AppCompatActivity {
         mFirebaseAuth = FirebaseAuth.getInstance();
         emailId = findViewById(R.id.emailAddress);
         password = findViewById(R.id.password);
-//        btnSignIn = findViewById(R.id.createAcct);
-//        tvSignUp = findViewById(R.id.textView);
+        btnSignIn = findViewById(R.id.loginBtn);
+        tvSignUp = findViewById(R.id.signupBtn);
 
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -73,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText(LoginActivity.this,"Login Error, Please Login Again",Toast.LENGTH_SHORT).show();
                             }
                             else{
-                                Intent intToHome = new Intent(LoginActivity.this,HomeActivity.class);
+                                Intent intToHome = new Intent(LoginActivity.this,MainActivity.class);
                                 startActivity(intToHome);
                             }
                         }
@@ -90,7 +92,7 @@ public class LoginActivity extends AppCompatActivity {
         tvSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intSignUp = new Intent(LoginActivity.this, MainActivity.class);
+                Intent intSignUp = new Intent(LoginActivity.this, RegistrationActivity.class);
                 startActivity(intSignUp);
             }
         });

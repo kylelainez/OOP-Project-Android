@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class RegistrationActivity extends AppCompatActivity {
 
     EditText emailAddress, password, confirmPassword;
-    ImageButton signupBtn;
+    ImageButton signupBtn, mNextButton, mAlreadyHaveAcctBtn;
     FirebaseAuth mFirebaseAuth;
 
     @Override
@@ -33,6 +33,8 @@ public class RegistrationActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         confirmPassword = findViewById(R.id.password2);
         signupBtn = findViewById(R.id.signupBtn);
+        mAlreadyHaveAcctBtn = findViewById(R.id.alreadyHaveAcctBtn);
+        mNextButton = findViewById(R.id.nextBtn);
 
         signupBtn.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ShowToast")
@@ -72,6 +74,14 @@ public class RegistrationActivity extends AppCompatActivity {
                 } else{
                     Toast.makeText(RegistrationActivity.this,"Error Occurred!",Toast.LENGTH_SHORT);
                 }
+            }
+        });
+
+        mAlreadyHaveAcctBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(RegistrationActivity.this,LoginActivity.class);
+                startActivity(i);
             }
         });
     }

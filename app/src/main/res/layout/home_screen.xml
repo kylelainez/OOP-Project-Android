@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-=======
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
->>>>>>> a7f0d47ce79189fe24c9593ef4d758ad09fbba28
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary">
 
-<<<<<<< HEAD
     <ImageButton
         android:id="@+id/expanded_menu"
         android:layout_width="55dp"
@@ -157,12 +152,10 @@
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/worksans_black"
         android:text="@string/services_title"
-        android:textSize="25dp"
+        android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.027"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchView" />
-=======
 
->>>>>>> a7f0d47ce79189fe24c9593ef4d758ad09fbba28
 </androidx.constraintlayout.widget.ConstraintLayout>
