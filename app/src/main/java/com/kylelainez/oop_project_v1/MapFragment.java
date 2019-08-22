@@ -27,6 +27,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.location.FusedLocationProviderClient;
 
+import java.util.Objects;
+
 public class MapFragment extends Fragment implements OnMapReadyCallback {
     private static final String TAG = "MapFragment";
     private GoogleMap map;
@@ -128,8 +130,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         map = googleMap;
         googleMap.setMapStyle(
-                MapStyleOptions.loadRawResourceStyle(
-                        getActivity(), R.raw.style_json));
+                MapStyleOptions.loadRawResourceStyle(Objects.requireNonNull(getActivity()), R.raw.style_json));
         if (mainActivity.LocationPermissionGranted) {
             if (ContextCompat.checkSelfPermission(getActivity().getApplicationContext(),
                     Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED)

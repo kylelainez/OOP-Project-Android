@@ -157,5 +157,8 @@
         app:layout_constraintHorizontal_bias="0.027"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchView" />
+<<<<<<< HEAD
 
+=======
+>>>>>>> 432ba9847f2b1fcfe46ff2160f0d98a39ed1db73
 </androidx.constraintlayout.widget.ConstraintLayout>
