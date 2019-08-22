@@ -2,10 +2,7 @@ package com.kylelainez.oop_project_v1;
 
 import android.Manifest;
 import android.app.Dialog;
-<<<<<<< HEAD
-=======
 import android.content.Intent;
->>>>>>> 432ba9847f2b1fcfe46ff2160f0d98a39ed1db73
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.pm.PackageManager;
 import android.os.Bundle;

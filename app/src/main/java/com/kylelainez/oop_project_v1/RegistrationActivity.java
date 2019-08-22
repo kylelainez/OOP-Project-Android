@@ -32,11 +32,10 @@ public class RegistrationActivity extends AppCompatActivity {
         emailAddress = findViewById(R.id.emailAddress);
         password = findViewById(R.id.password);
         confirmPassword = findViewById(R.id.password2);
-        signupBtn = findViewById(R.id.signupBtn);
-        mAlreadyHaveAcctBtn = findViewById(R.id.alreadyHaveAcctBtn);
+        mAlreadyHaveAcctBtn = findViewById(R.id.signupBtn);
         mNextButton = findViewById(R.id.nextBtn);
 
-        signupBtn.setOnClickListener(new View.OnClickListener() {
+        mNextButton.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ShowToast")
             @Override
             public void onClick(View view) {
@@ -67,7 +66,7 @@ public class RegistrationActivity extends AppCompatActivity {
                             if(!task.isSuccessful()){
                                 Toast.makeText(RegistrationActivity.this,"Sign Up Unsuccessful",Toast.LENGTH_SHORT);
                             }else{
-                                startActivity(new Intent(RegistrationActivity.this,MainActivity.class));
+                                startActivity(new Intent(RegistrationActivity.this,LoginActivity.class));
                             }
                         }
                     });

@@ -18,7 +18,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".RegistrationActivity"></activity>
 
         <uses-library
             android:name="org.apache.http.legacy"
@@ -31,7 +30,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAzubNBFZFjEpANBS6GQyljFOtxbcWgjW8" /> <!-- API Key for Google Maps Services -->
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
             <intent-filter>
@@ -39,6 +38,16 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme">
+        </activity>
+        <activity
+            android:name=".RegistrationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme">
         </activity>
     </application>
 

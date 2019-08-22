@@ -1,5 +1,6 @@
 package com.kylelainez.oop_project_v1;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.login_screen);
+        setContentView(R.layout.login_screen);
 
         mFirebaseAuth = FirebaseAuth.getInstance();
         emailId = findViewById(R.id.emailAddress);
@@ -41,9 +42,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser mFirebaseUser = mFirebaseAuth.getCurrentUser();
                 if( mFirebaseUser != null ){
-                    Toast.makeText(LoginActivity.this,"You are logged in",Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(LoginActivity.this, HomeActivity.class);
-                    startActivity(i);
+                    Toast.makeText(LoginActivity.this,"Login",Toast.LENGTH_SHORT).show();
                 }
                 else{
                     Toast.makeText(LoginActivity.this,"Please Login",Toast.LENGTH_SHORT).show();
@@ -52,6 +51,7 @@ public class LoginActivity extends AppCompatActivity {
         };
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ShowToast")
             @Override
             public void onClick(View v) {
                 String email = emailId.getText().toString();
