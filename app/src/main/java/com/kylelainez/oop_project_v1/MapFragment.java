@@ -1,7 +1,10 @@
 package com.kylelainez.oop_project_v1;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,10 +13,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.location.LocationServices;
@@ -21,15 +26,18 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.location.FusedLocationProviderClient;
 
 import java.util.Objects;
 
-public class MapFragment extends Fragment implements OnMapReadyCallback {
+public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
     private static final String TAG = "MapFragment";
     private GoogleMap map;
     private MapView mapView;
@@ -42,7 +50,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     private Boolean laundryState = false;
     private Boolean convenienceStoresState = false;
     private Boolean internetCafeState = false;
-
+    private String selectedMarker = null;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -68,52 +76,53 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         restaurants.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (restaurantState == false) {
+                if (!restaurantState) {
                     MapLocations getLocations = new MapLocations("restaurants", map, false); //Generates Markers
                     restaurantState = true;
                 } else {
                     MapLocations getLocations = new MapLocations("restaurants", map, true); //Clears Markers
                     restaurantState = false;
                 }
+                ceaMarker();
             }
         });
         laundry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (laundryState == false) {
+                if (!laundryState) {
                     MapLocations getLocations = new MapLocations("laundry", map, false);
                     laundryState = true;
                 } else {
                     MapLocations getLocations = new MapLocations("laundry", map, true);
                     laundryState = false;
                 }
-
+                ceaMarker();
             }
         });
         internetCafe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (internetCafeState == false) {
+                if (!internetCafeState) {
                     MapLocations getLocations = new MapLocations("internetCafe", map, false);
                     internetCafeState = true;
                 } else {
                     MapLocations getLocations = new MapLocations("internetCafe", map, true);
                     internetCafeState = false;
                 }
-
+                ceaMarker();
             }
         });
         convenienceStore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (convenienceStoresState == false) {
+                if (!convenienceStoresState) {
                     MapLocations getLocations = new MapLocations("convenienceStore", map, false);
                     convenienceStoresState = true;
                 } else {
                     MapLocations getLocations = new MapLocations("convenienceStore", map, true);
                     convenienceStoresState = false;
                 }
-
+                ceaMarker();
             }
         });
         location.setOnClickListener(new View.OnClickListener() {
@@ -123,7 +132,20 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             }
         });
 
+
         return view;
+    }
+
+    public void ceaMarker() {
+        Drawable drawable = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_pup_logo, null);
+        Bitmap icon = MapLocations.drawableToBitmap(drawable);
+        Bitmap scaledIcon = Bitmap.createScaledBitmap(icon, 100, 100, true);
+        Marker ceaBuilding = map.addMarker(new MarkerOptions()
+                .position(new LatLng(14.598815, 121.005397))
+                .anchor(0.5f, 0.5f)
+                .title("PUP - CEA Building")
+                .icon(BitmapDescriptorFactory.fromBitmap(scaledIcon))
+                .snippet("College of Engineering and Architecture"));
     }
 
     @Override
@@ -139,7 +161,37 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         map.setMyLocationEnabled(true);
         map.getUiSettings().setMyLocationButtonEnabled(false);
         moveCameraLocation(new LatLng(14.598815, 121.005397), 17f);
+        ceaMarker();
+
+        if (map != null) {
+            map.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
+                @Override
+                public View getInfoWindow(Marker marker) {
+                    return null;
+                }
+
+                @Override
+                public View getInfoContents(Marker marker) {
+                    View view = getActivity().getLayoutInflater().inflate(R.layout.info_window, null);
+                    TextView title = view.findViewById(R.id.name);
+                    title.setText(marker.getTitle());
+                    return view;
+                }
+            });
+        }
+        map.setOnInfoWindowClickListener(getInfoWindowClickListener());
+
     }
+
+    public GoogleMap.OnInfoWindowClickListener getInfoWindowClickListener() {
+        return new GoogleMap.OnInfoWindowClickListener() {
+            @Override
+            public void onInfoWindowClick(Marker marker) {
+
+            }
+        };
+    }
+
 
     private void moveCameraLocation(LatLng latLng, float zoom) {
         Log.d(TAG, "moveCameraLocation: Moving Camera...");//Moves Camera to target
@@ -167,5 +219,10 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
         } catch (SecurityException e) {
         }
+    }
+
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+        return false;
     }
 }

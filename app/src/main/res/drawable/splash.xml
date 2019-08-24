@@ -1,10 +1,4 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-        <item android:drawable="@drawable/startup_bg"/>
-    <item>
-        <bitmap
-            android:gravity="center"
-            android:src="@drawable/logo"
-            />
+        <item android:drawable="@drawable/splash_screen2"/>
 
-    </item>
 </layer-list>
