@@ -16,21 +16,22 @@ public class MapLocations {
     private Marker laundry[] = new Marker[1];
     private Marker convenienceStore[] = new Marker[1];
     private GoogleMap googleMap;
+    private MarkerOptions asd = new MarkerOptions()
+            .position(new LatLng(14.601379, 121.004622))
+            .anchor(0.5f, 0.5f)
+            .title("Jollibee Pureza")
+            .snippet("Open 24 Hours");
 
     public MapLocations(String string, GoogleMap maps, boolean test) {
         googleMap = maps;
 
         if (string.equals("restaurants")) {
             googleMap.clear();
-            restaurants[0] = googleMap.addMarker(new MarkerOptions()
-                    .position(new LatLng(14.601379, 121.004622))
-                    .anchor(0.5f, 0.5f)
-                    .title("Jollibee Pureza")
-                    .snippet("Open 24 Hours"));
+            restaurants[0] = googleMap.addMarker(asd);
             restaurants[1] = googleMap.addMarker(new MarkerOptions()
                     .position(new LatLng(14.601455, 121.004779))
                     .anchor(0.5f, 0.5f)
-                    .title("Chowking")
+                    .title("chowking")
                     .snippet("Open 24 Hours"));
 
             restaurants[2] = googleMap.addMarker(new MarkerOptions()
@@ -44,12 +45,6 @@ public class MapLocations {
                     .anchor(0.5f, 0.5f)
                     .title("Dunkin Donut")
                     .snippet("Open 24 Hours"));
-
-            restaurants[4] = googleMap.addMarker(new MarkerOptions()
-                    .position(new LatLng(14.601012, 121.004988))
-                    .anchor(0.5f, 0.5f)
-                    .title("Boshock")
-                    .snippet("Tinapa Rice"));
         } else if (string.equals("internetCafe")) {
             googleMap.clear();
             internetCafe[0] = googleMap.addMarker(new MarkerOptions()
@@ -69,7 +64,7 @@ public class MapLocations {
             convenienceStore[0] = googleMap.addMarker(new MarkerOptions()
                     .position(new LatLng(14.600480, 121.004642))
                     .anchor(0.5f, 0.5f)
-                    .title("7-Eleven Pureza")
+                    .title("7-Eleven")
                     .snippet("Open 24 Hours"));
         }
     }
@@ -96,5 +91,24 @@ public class MapLocations {
         return bitmap;
     }
 
+    public static int getImage(String title){
+        int resID = R.drawable.eat_button;
 
+        if (title.equals("Jollibee Pureza"))
+            resID = R.drawable.jollibee;
+        else if (title.equals("chowking"))
+            resID = R.drawable.chowking;
+//        else if (title.equals("KFC Pureza"))
+//            resID = R.drawable.kfc;
+//        else if (title.equals("Dunkin Donut"))
+//            resID = R.drawable.dunkin;
+//        else if (title.equals("Infinity"))
+//            resID = R.drawable.infinity;
+//        else if (title.equals("Labahab ni Juan Laundry Shop"))
+//            resID = R.drawable.labahan_ni_juan;
+//        else if (title.equals("7-Eleven"))
+//            resID = R.drawable.seven_eleven;
+
+        return resID;
+    }
 }

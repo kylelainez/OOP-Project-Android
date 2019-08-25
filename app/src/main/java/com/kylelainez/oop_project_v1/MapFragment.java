@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
+import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -37,7 +39,7 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 
 import java.util.Objects;
 
-public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
+public class MapFragment extends Fragment implements OnMapReadyCallback {
     private static final String TAG = "MapFragment";
     private GoogleMap map;
     private MapView mapView;
@@ -174,7 +176,11 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleM
                 public View getInfoContents(Marker marker) {
                     View view = getActivity().getLayoutInflater().inflate(R.layout.info_window, null);
                     TextView title = view.findViewById(R.id.name);
+                    TextView type = view.findViewById(R.id.type);
+                    ImageView infoImage = view.findViewById(R.id.infoImage);
                     title.setText(marker.getTitle());
+                    type.setText(marker.getSnippet());
+                    infoImage.setImageResource(MapLocations.getImage(marker.getTitle()));
                     return view;
                 }
             });
@@ -187,7 +193,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleM
         return new GoogleMap.OnInfoWindowClickListener() {
             @Override
             public void onInfoWindowClick(Marker marker) {
-
+                info_layout.getMarkerInfo(marker.getTitle(),marker.getSnippet());
+                Intent intent = new Intent(getView().getContext(), info_layout.class);
+                startActivityForResult(intent, 0);
             }
         };
     }
@@ -221,8 +229,4 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleM
         }
     }
 
-    @Override
-    public boolean onMarkerClick(Marker marker) {
-        return false;
-    }
 }
