@@ -3,7 +3,9 @@ package com.kylelainez.oop_project_v1;
 import android.Manifest;
 import android.app.Dialog;
 import android.content.Intent;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
     private static final String FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
     private static final String COURSE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
     private static final int Request_Code = 1234;
-    private static final float DefaultZoom = 20f;
     public Boolean LocationPermissionGranted = false;
 
     @Override
