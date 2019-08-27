@@ -22,6 +22,12 @@ public class MapLocations {
             .title("Jollibee Pureza")
             .snippet("Open 24 Hours");
 
+    public int getRestaurants(){
+        return restaurants.length;
+    }
+    public MapLocations(){
+
+    }
     public MapLocations(String string, GoogleMap maps, boolean test) {
         googleMap = maps;
 

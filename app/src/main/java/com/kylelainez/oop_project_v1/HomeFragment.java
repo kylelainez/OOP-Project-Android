@@ -21,26 +21,28 @@ public class HomeFragment extends Fragment {
     CustomSwipeAdapter customSwipeAdapter;
     private Timer timer;
     private int current_position = 0;
+    private View view;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.home_screen, container, false);
-        ViewPager viewPager = view.findViewById(R.id.view_pager);
-        customSwipeAdapter = new CustomSwipeAdapter(getActivity());
-        viewPager.setAdapter(customSwipeAdapter);
+        view = inflater.inflate(R.layout.home_screen, container, false);
+
+        if (getActivity() != null) {
+            sliderAdapter();
+        }
         createSlideShow();
         return view;
     }
 
-    private void createSlideShow(){
+    private void createSlideShow() {
         final Handler handler = new Handler();
         final Runnable runnable = new Runnable() {
             @Override
             public void run() {
-                if(current_position == Integer.MAX_VALUE){
+                if (current_position == Integer.MAX_VALUE) {
                     current_position = 0;
-                    viewPager.setCurrentItem(current_position++,true);
+                    viewPager.setCurrentItem(current_position++, true);
                 }
             }
         };
@@ -51,7 +53,14 @@ public class HomeFragment extends Fragment {
             public void run() {
                 handler.post(runnable);
             }
-        },250,2500);
+        }, 250, 2500);
+    }
+
+    private void sliderAdapter() {
+        ViewPager viewPager = view.findViewById(R.id.viewpager);
+        customSwipeAdapter = new CustomSwipeAdapter(getActivity());
+
+        viewPager.setAdapter(customSwipeAdapter);
     }
 
 //    @Override

@@ -22,6 +22,8 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -37,6 +39,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.location.FusedLocationProviderClient;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class MapFragment extends Fragment implements OnMapReadyCallback {
@@ -53,6 +56,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     private Boolean convenienceStoresState = false;
     private Boolean internetCafeState = false;
     private String selectedMarker = null;
+
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -133,8 +137,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                 getDeviceLocation();
             }
         });
-
-
+//        MapLocations mapLocations = new MapLocations();
+//        int length = mapLocations.getRestaurants();
         return view;
     }
 
@@ -178,6 +182,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                     TextView title = view.findViewById(R.id.name);
                     TextView type = view.findViewById(R.id.type);
                     ImageView infoImage = view.findViewById(R.id.infoImage);
+
                     title.setText(marker.getTitle());
                     type.setText(marker.getSnippet());
                     infoImage.setImageResource(MapLocations.getImage(marker.getTitle()));
@@ -194,6 +199,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             @Override
             public void onInfoWindowClick(Marker marker) {
                 info_layout.getMarkerInfo(marker.getTitle(),marker.getSnippet());
+
                 Intent intent = new Intent(getView().getContext(), info_layout.class);
                 startActivityForResult(intent, 0);
             }
