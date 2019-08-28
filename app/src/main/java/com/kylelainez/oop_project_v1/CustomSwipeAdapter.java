@@ -1,6 +1,7 @@
 package com.kylelainez.oop_project_v1;
 
 import android.content.Context;
+import android.transition.Slide;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,8 +23,8 @@ public class CustomSwipeAdapter extends PagerAdapter {
 
     public CustomSwipeAdapter(Context ctx){
         this.ctx = ctx;
+        layoutInflater = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
-
 
     @Override
     public int getCount() {
@@ -38,12 +39,12 @@ public class CustomSwipeAdapter extends PagerAdapter {
     public Object instantiateItem (ViewGroup container, int position){
         if (custom_position > 3)
                 custom_position = 0;
-        custom_position++;
 
-        layoutInflater = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+//        layoutInflater = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View item_view = layoutInflater.inflate(R.layout.swipe_layout,container,false);
         ImageView imageView = item_view.findViewById(R.id.ad_image);
-        imageView.setImageResource(image_resources[position]);
+        imageView.setImageResource(image_resources[custom_position]);
+        custom_position++;
         container.addView(item_view);
 
         return item_view;

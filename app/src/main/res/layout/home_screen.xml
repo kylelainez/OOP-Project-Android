@@ -5,139 +5,132 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary">
-
-    <ImageButton
-        android:id="@+id/expanded_menu"
-        android:layout_width="55dp"
-        android:layout_height="59dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@color/transparent"
-        android:contentDescription="@string/menu_bar"
-        app:layout_constraintEnd_toStartOf="@+id/logo_home"
-        app:layout_constraintHorizontal_bias="0.2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_menu_white_24dp" />
+    android:background="#ADBEFF">
 
     <ImageView
         android:id="@+id/logo_home"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
         android:contentDescription="@string/logo"
-        android:layout_width="190dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
 
-    <ImageButton
-        android:id="@+id/notif_home"
-        android:layout_width="wrap_content"
+<!--    <ImageButton-->
+<!--        android:id="@+id/expanded_menu"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="32dp"-->
+<!--        android:background="@color/transparent"-->
+<!--        android:contentDescription="@string/menu_bar"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/logo_home"-->
+<!--        app:layout_constraintHorizontal_bias="0.478"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:srcCompat="@drawable/ic_menu_white_24dp" />-->
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview"
+        android:layout_marginTop="10dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:background="@color/transparent"
-        android:contentDescription="@string/notif_icon"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.566"
-        app:layout_constraintStart_toEndOf="@+id/logo_home"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_notifications_white_24dp" />
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logo_home">
 
-    <ImageView
-        android:id="@+id/profile_picture"
-        android:contentDescription="@string/profile_picture"
-        android:layout_width="98dp"
-        android:layout_height="102dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo_home"
-        tools:srcCompat="@tools:sample/avatars" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#758AE7"
+            android:padding="15dp">
 
-    <TextView
-        android:id="@+id/name_profile_home"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/name"
-        android:fontFamily="@font/worksans_black"
-        android:textSize="20dp"
-        app:layout_constraintStart_toEndOf="@+id/profile_picture"
-        app:layout_constraintTop_toBottomOf="@+id/logo_home" />
 
-    <TextView
-        android:id="@+id/phone_number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/phone_number"
-        android:textColor="@color/white"
-        android:fontFamily="@font/worksans_light"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.145"
-        app:layout_constraintStart_toEndOf="@+id/profile_picture"
-        app:layout_constraintTop_toBottomOf="@+id/name_profile_home" />
+            <ImageView
+                android:id="@+id/profile_picture"
+                android:layout_width="98dp"
+                android:layout_height="102dp"
+                android:contentDescription="@string/profile_picture"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.022"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
 
-    <TextView
-        android:id="@+id/credit_points"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/credit_points"
-        android:textColor="@color/white"
-        android:fontFamily="@font/worksans_light"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.138"
-        app:layout_constraintStart_toEndOf="@+id/profile_picture"
-        app:layout_constraintTop_toBottomOf="@+id/phone_number" />
+            <ImageButton
+                android:id="@+id/profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="@color/transparent"
+                android:contentDescription="@string/full_profile"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.936"
+                app:layout_constraintStart_toEndOf="@+id/profile_picture"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_keyboard_arrow_right_white_24dp" />
 
-    <ImageButton
-        android:id="@+id/profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="8dp"
-        android:background="@color/transparent"
-        android:contentDescription="@string/full_profile"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.912"
-        app:layout_constraintStart_toEndOf="@+id/profile_picture"
-        app:layout_constraintTop_toBottomOf="@+id/logo_home"
-        app:srcCompat="@drawable/ic_keyboard_arrow_right_white_24dp" />
+            <TextView
+                android:id="@+id/credit_points"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/worksans_light"
+                android:text="@string/credit_points"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.178"
+                app:layout_constraintStart_toEndOf="@+id/profile_picture"
+                app:layout_constraintTop_toBottomOf="@+id/phone_number" />
+
+            <TextView
+                android:id="@+id/name_profile_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/worksans_black"
+                android:text="@string/name"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.2"
+                app:layout_constraintStart_toEndOf="@+id/profile_picture"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/phone_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/worksans_light"
+                android:text="@string/phone_number"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.16"
+                app:layout_constraintStart_toEndOf="@+id/profile_picture"
+                app:layout_constraintTop_toBottomOf="@+id/name_profile_home" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
 
     <SearchView
         android:id="@+id/searchView"
-        android:paddingBottom="5dp"
-        android:layout_width="416dp"
+        android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="468dp"
-        android:queryHint="Search"
+        android:iconifiedByDefault="false"
         android:outlineAmbientShadowColor="@color/white"
         android:outlineSpotShadowColor="@color/white"
-        android:iconifiedByDefault="false"
+        android:paddingBottom="5dp"
+        android:queryHint="Search"
         app:collapseIcon="@drawable/ic_arrow_back_white_24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_picture"
-       >
-
-    </SearchView>
+        app:layout_constraintTop_toBottomOf="@+id/cardview" />
 
     <TextView
         android:id="@+id/whats_hot"
@@ -168,14 +161,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="240dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/worksans_black"
-        android:text="@string/services_title"
+        android:text="Explore"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.027"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView" />
+        app:layout_constraintTop_toBottomOf="@+id/viewpager" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

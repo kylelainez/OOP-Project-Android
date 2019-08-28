@@ -1,4 +1,3 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-        <item android:drawable="@drawable/splash_screen2"/>
-
+        <item android:drawable="@drawable/welcome_screen"/>
 </layer-list>

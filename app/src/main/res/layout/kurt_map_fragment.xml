@@ -17,6 +17,7 @@
         android:layout_marginBottom="50dp"
         android:elevation="5dp"
         android:src="@drawable/ic_my_location_black_24dp"
+        android:background="@drawable/info_card"
         android:visibility="visible" />
 
     <LinearLayout
@@ -27,32 +28,70 @@
 
         <HorizontalScrollView
             android:layout_width="match_parent"
-            android:layout_height="60dp">
+            android:layout_height="80dp"
+            android:background="@color/transparent">
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                android:orientation="horizontal">
+                android:layout_height="80dp"
+                android:orientation="horizontal"
+                android:paddingLeft="8dp">
 
-                <ImageButton
-                    android:id="@+id/restaurants"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/eat_button" />
-
-                <ImageButton
-                    android:id="@+id/internetCafe"
-                    android:layout_width="wrap_content"
+                <Button
+                    android:id="@+id/eat_button"
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/info_card"
+                    android:drawableStart="@drawable/eat_icon"
+                    android:fontFamily="@font/worksans_medium"
+                    android:paddingLeft="10dp"
+                    android:text="EAT"
+                    android:textSize="16sp"
+                    android:layout_margin="5dp"
+                    android:padding="10dp"/>
 
-                    android:src="@drawable/store_button"/>
-
-                <ImageButton
-                    android:id="@+id/laundry"
-                    android:layout_width="match_parent"
+                <Button
+                    android:id="@+id/store_button"
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/others_button"
-                    android:layout_marginLeft="5dp"/>
+                    android:layout_gravity="center"
+                    android:background="@drawable/info_card"
+                    android:drawableStart="@drawable/store_icon"
+                    android:fontFamily="@font/worksans_medium"
+                    android:paddingLeft="10dp"
+                    android:text=" STORE"
+                    android:textSize="16sp"
+                    android:layout_margin="5dp"
+                    android:padding="10dp"/>
+
+                <Button
+                    android:id="@+id/surf_button"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/info_card"
+                    android:drawableStart="@drawable/surf_icon"
+                    android:fontFamily="@font/worksans_medium"
+                    android:paddingLeft="10dp"
+                    android:text=" SURF"
+                    android:textSize="16sp"
+                    android:layout_margin="5dp"
+                    android:padding="10dp"/>
+
+                <Button
+                    android:id="@+id/others_button"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/info_card"
+                    android:drawableStart="@drawable/others_icon"
+                    android:fontFamily="@font/worksans_medium"
+                    android:paddingLeft="10dp"
+                    android:text=" STORE"
+                    android:textSize="16sp"
+                    android:layout_margin="5dp"
+                    android:padding="10dp"/>
 
 
             </LinearLayout>
@@ -63,6 +102,7 @@
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:elevation="5dp"
             android:background="@color/transparent"/>
 
     </LinearLayout>

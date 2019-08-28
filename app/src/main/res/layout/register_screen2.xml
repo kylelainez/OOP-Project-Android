@@ -30,25 +30,25 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="168dp"
         android:fontFamily="@font/montserrat_bold"
-        android:text="Create an account"
+        android:text="Please enter your personal info"
         android:textColor="@color/white"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.089"
+        app:layout_constraintHorizontal_bias="0.17"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/lastName"
         android:layout_width="383dp"
         android:layout_height="66dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:ems="10"
-        android:hint="Email Address"
-        android:inputType="textEmailAddress"
+        android:hint="Last Name"
+        android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.52"
@@ -57,7 +57,7 @@
         app:layout_constraintVertical_bias="0.072" />
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/firstName"
         android:layout_width="383dp"
         android:layout_height="66dp"
         android:layout_marginStart="8dp"
@@ -65,17 +65,17 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
+        android:hint="First Name"
+        android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username"
+        app:layout_constraintTop_toBottomOf="@+id/lastName"
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/password2"
+        android:id="@+id/mobileNumber"
         android:layout_width="383dp"
         android:layout_height="66dp"
         android:layout_marginStart="8dp"
@@ -83,12 +83,12 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:ems="10"
-        android:hint="Confirm Password"
-        android:inputType="textPassword"
+        android:hint="Mobile Number"
+        android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password"
+        app:layout_constraintTop_toBottomOf="@+id/firstName"
         app:layout_constraintVertical_bias="0.021" />
 
     <ImageButton
@@ -102,22 +102,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.965"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password"
+        app:layout_constraintTop_toBottomOf="@+id/firstName"
         app:srcCompat="@drawable/next_button" />
-
-    <ImageButton
-        android:id="@+id/alreadyHaveAcctBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="92dp"
-        android:background="@color/transparent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.063"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nextBtn"
-        app:srcCompat="@drawable/alreadyhaveacct_text"
-        android:visibility="invisible"/>
 
     <TextView
         android:id="@+id/alreadyHaveAccountBtn"

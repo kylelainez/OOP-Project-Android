@@ -134,7 +134,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             }
         });
 
-
+//        TextView textView = view.findViewById(R.id.eat_places);
+//        textView.setText(MapLocations);
         return view;
     }
 

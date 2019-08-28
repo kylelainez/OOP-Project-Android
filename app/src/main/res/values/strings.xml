@@ -25,6 +25,6 @@
     <string name="search">Search bar</string>
 
     <string name="botnav1">Maps</string>
-    <string name="botnav2">Home</string>
+    <string name="botnav2">Browse</string>
     <string name="botnav3">Profile</string>
 </resources>
