@@ -10,7 +10,7 @@
     android:background="@drawable/info_card">
 
     <ImageView
-        android:id="@+id/eat_menu_logo"
+        android:id="@+id/eat_menu_image"
         android:layout_width="150dp"
         android:layout_height="100dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,7 +25,7 @@
         android:layout_marginTop="12dp"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/eat_menu_logo"
+        app:layout_constraintStart_toEndOf="@+id/eat_menu_image"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -36,7 +36,12 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
+<<<<<<< HEAD
         app:layout_constraintStart_toEndOf="@+id/eat_menu_logo"
         app:layout_constraintTop_toBottomOf="@+id/eat_menu_name" />
 
+=======
+        app:layout_constraintStart_toEndOf="@+id/eat_menu_image"
+        app:layout_constraintTop_toBottomOf="@+id/eat_menu_name" />
+>>>>>>> ff6d190ebc37bcf32aee308a524d1871c204d9de
 </androidx.constraintlayout.widget.ConstraintLayout>

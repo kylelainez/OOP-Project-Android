@@ -22,30 +22,50 @@ public class HomeFragment extends Fragment {
     CustomSwipeAdapter customSwipeAdapter;
     private Timer timer;
     private int current_position = 0;
+    private View view;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+<<<<<<< HEAD
         View view = inflater.inflate(R.layout.home_screen, container, false);
         viewPager = view.findViewById(R.id.viewpager);
         customSwipeAdapter = new CustomSwipeAdapter(getActivity());
         viewPager.setAdapter(customSwipeAdapter);
+=======
+        view = inflater.inflate(R.layout.home_screen, container, false);
+
+        if (getActivity() != null) {
+            sliderAdapter();
+        }
+>>>>>>> ff6d190ebc37bcf32aee308a524d1871c204d9de
         createSlideShow();
         return view;
     }
 
+<<<<<<< HEAD
 //    private PagerAdapter buildAdapter() {
 //        return(new (getActivity(), getChildFragmentManager()));
 //    }
 
     private void createSlideShow(){
+=======
+    private void createSlideShow() {
+>>>>>>> ff6d190ebc37bcf32aee308a524d1871c204d9de
         final Handler handler = new Handler();
         final Runnable runnable = new Runnable() {
             @Override
             public void run() {
+<<<<<<< HEAD
                 if(current_position == Integer.MAX_VALUE)
                     current_position = 0;
                     viewPager.setCurrentItem(current_position++,true);
+=======
+                if (current_position == Integer.MAX_VALUE) {
+                    current_position = 0;
+                    viewPager.setCurrentItem(current_position++, true);
+                }
+>>>>>>> ff6d190ebc37bcf32aee308a524d1871c204d9de
             }
         };
 
@@ -55,7 +75,14 @@ public class HomeFragment extends Fragment {
             public void run() {
                 handler.post(runnable);
             }
-        },250,2500);
+        }, 250, 2500);
+    }
+
+    private void sliderAdapter() {
+        ViewPager viewPager = view.findViewById(R.id.viewpager);
+        customSwipeAdapter = new CustomSwipeAdapter(getActivity());
+
+        viewPager.setAdapter(customSwipeAdapter);
     }
 
 //    @Override
