@@ -36,12 +36,7 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
-<<<<<<< HEAD
-        app:layout_constraintStart_toEndOf="@+id/eat_menu_logo"
-        app:layout_constraintTop_toBottomOf="@+id/eat_menu_name" />
-
-=======
         app:layout_constraintStart_toEndOf="@+id/eat_menu_image"
         app:layout_constraintTop_toBottomOf="@+id/eat_menu_name" />
->>>>>>> ff6d190ebc37bcf32aee308a524d1871c204d9de
+
 </androidx.constraintlayout.widget.ConstraintLayout>

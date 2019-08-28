@@ -137,14 +137,10 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                 getDeviceLocation();
             }
         });
-<<<<<<< HEAD
-
 //        TextView textView = view.findViewById(R.id.eat_places);
 //        textView.setText(MapLocations);
-=======
 //        MapLocations mapLocations = new MapLocations();
 //        int length = mapLocations.getRestaurants();
->>>>>>> ff6d190ebc37bcf32aee308a524d1871c204d9de
         return view;
     }
 

@@ -8,10 +8,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,8 +21,8 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
     EditText emailId, password;
-    ImageButton btnSignIn, tvSignUp;
-    //    TextView tvSignUp;
+    ImageButton btnSignIn;
+    TextView tvSignUp;
     FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
 
@@ -37,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
         emailId = findViewById(R.id.emailAddress);
         password = findViewById(R.id.password);
         btnSignIn = findViewById(R.id.loginBtn);
-        tvSignUp = findViewById(R.id.signupBtn);
+        tvSignUp = findViewById(R.id.create_account);
 
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
             @Override

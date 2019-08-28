@@ -27,45 +27,34 @@ public class HomeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-<<<<<<< HEAD
-        View view = inflater.inflate(R.layout.home_screen, container, false);
+        view = inflater.inflate(R.layout.home_screen, container, false);
         viewPager = view.findViewById(R.id.viewpager);
         customSwipeAdapter = new CustomSwipeAdapter(getActivity());
         viewPager.setAdapter(customSwipeAdapter);
-=======
         view = inflater.inflate(R.layout.home_screen, container, false);
 
         if (getActivity() != null) {
             sliderAdapter();
         }
->>>>>>> ff6d190ebc37bcf32aee308a524d1871c204d9de
         createSlideShow();
         return view;
     }
-
-<<<<<<< HEAD
 //    private PagerAdapter buildAdapter() {
 //        return(new (getActivity(), getChildFragmentManager()));
 //    }
 
-    private void createSlideShow(){
-=======
     private void createSlideShow() {
->>>>>>> ff6d190ebc37bcf32aee308a524d1871c204d9de
         final Handler handler = new Handler();
         final Runnable runnable = new Runnable() {
             @Override
             public void run() {
-<<<<<<< HEAD
                 if(current_position == Integer.MAX_VALUE)
                     current_position = 0;
                     viewPager.setCurrentItem(current_position++,true);
-=======
                 if (current_position == Integer.MAX_VALUE) {
                     current_position = 0;
                     viewPager.setCurrentItem(current_position++, true);
                 }
->>>>>>> ff6d190ebc37bcf32aee308a524d1871c204d9de
             }
         };
 

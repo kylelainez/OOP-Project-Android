@@ -26,9 +26,9 @@ public class MapLocations {
             .title("Jollibee Pureza")
             .snippet("Open 24 Hours");
 
-    public int getRestaurants(){
-        return restaurants.length;
-    }
+//    public int getRestaurants(){
+//        return restaurants.length;
+//    }
     public MapLocations(){
 
     }

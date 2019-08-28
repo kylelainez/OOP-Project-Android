@@ -7,9 +7,9 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -20,19 +20,20 @@ import com.google.firebase.auth.FirebaseAuth;
 public class RegistrationActivity extends AppCompatActivity {
 
     EditText emailAddress, password, confirmPassword;
-    ImageButton signupBtn, mNextButton, mAlreadyHaveAcctBtn;
+    ImageButton mNextButton;
+    TextView mAlreadyHaveAcctBtn;
     FirebaseAuth mFirebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registration);
+        setContentView(R.layout.register_screen1);
 
         mFirebaseAuth = FirebaseAuth.getInstance();
         emailAddress = findViewById(R.id.emailAddress);
         password = findViewById(R.id.password);
         confirmPassword = findViewById(R.id.password2);
-        mAlreadyHaveAcctBtn = findViewById(R.id.signupBtn);
+        mAlreadyHaveAcctBtn = findViewById(R.id.alreadyHaveAccountBtn);
         mNextButton = findViewById(R.id.nextBtn);
 
         mNextButton.setOnClickListener(new View.OnClickListener() {
