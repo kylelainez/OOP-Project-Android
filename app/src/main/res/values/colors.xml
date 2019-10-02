@@ -5,6 +5,7 @@
     <color name="colorAccent">#D81B60</color>
 
     <color name="black">#000</color>
+    <color name="chrome_black">#2E2E2E</color>
     <color name="colorPrimaryDarker">#28328f</color>
     <color name="white">#FFFFFF</color>
     <color name="red">#f26644</color>

@@ -27,4 +27,5 @@
     <string name="botnav1">Maps</string>
     <string name="botnav2">Browse</string>
     <string name="botnav3">Profile</string>
+    <string name="botnav4">Scan QR</string>
 </resources>

@@ -13,7 +13,12 @@
 
     <item
         android:id="@+id/profile_navigation"
-        android:icon="@drawable/ic_notifications_black_24dp"
+        android:icon="@drawable/ic_person_black_24dp"
         android:title="@string/botnav3" />
+
+    <item
+        android:id="@+id/scanqr_navigation"
+        android:icon="@drawable/ic_camera_black_24dp"
+        android:title="@string/botnav4" />
 
 </menu>
