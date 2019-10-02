@@ -27,4 +27,5 @@
     <string name="botnav1">Maps</string>
     <string name="botnav2">Home</string>
     <string name="botnav3">Profile</string>
+    <string name="menu">Menu</string>
 </resources>

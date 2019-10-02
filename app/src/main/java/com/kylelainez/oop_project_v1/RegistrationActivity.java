@@ -16,12 +16,14 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class RegistrationActivity extends AppCompatActivity {
 
     EditText emailAddress, password, confirmPassword;
     ImageButton signupBtn, mNextButton, mAlreadyHaveAcctBtn;
     FirebaseAuth mFirebaseAuth;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +41,8 @@ public class RegistrationActivity extends AppCompatActivity {
             @SuppressLint("ShowToast")
             @Override
             public void onClick(View view) {
-                String email =  emailAddress.getText().toString();
-                String pw = password.getText().toString();
+                final String email =  emailAddress.getText().toString();
+                final String pw = password.getText().toString();
                 String pwConfirm = confirmPassword.getText().toString();
 
                 if (email.isEmpty()){
@@ -66,6 +68,8 @@ public class RegistrationActivity extends AppCompatActivity {
                             if(!task.isSuccessful()){
                                 Toast.makeText(RegistrationActivity.this,"Sign Up Unsuccessful",Toast.LENGTH_SHORT);
                             }else{
+                                db.collection("UserAuth").document("Accounts")
+                                        .update("Email",email);
                                 startActivity(new Intent(RegistrationActivity.this,LoginActivity.class));
                             }
                         }

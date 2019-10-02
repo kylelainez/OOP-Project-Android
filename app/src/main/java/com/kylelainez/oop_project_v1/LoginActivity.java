@@ -66,11 +66,13 @@ public class LoginActivity extends AppCompatActivity {
                 } else if (email.isEmpty() && pwd.isEmpty()) {
                     Toast.makeText(LoginActivity.this, "Fields Are Empty!", Toast.LENGTH_SHORT).show();
                 } else if (!(email.isEmpty() && pwd.isEmpty())) {
-                    mFirebaseAuth.signInWithEmailAndPassword(email, pwd).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                    mFirebaseAuth.signInWithEmailAndPassword(email, pwd)
+                            .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (!task.isSuccessful()) {
-                                Toast.makeText(LoginActivity.this, "Login Error, Please Login Again", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Login Error, Please Login Again",
+                                        Toast.LENGTH_SHORT).show();
                             } else {
                                 Intent intToHome = new Intent(LoginActivity.this, MainActivity.class);
                                 startActivity(intToHome);

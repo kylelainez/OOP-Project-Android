@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String COURSE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
     private static final int Request_Code = 1234;
     public Boolean LocationPermissionGranted = false;
+    private static int accountLevel = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {                                             //On Application Start-up
@@ -42,6 +43,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         BottomNavigationView bottomNavigationView = findViewById(R.id.nav_view);
+        bottomNavigationView.getMenu().clear();
+        if (accountLevel ==0)
+            bottomNavigationView.inflateMenu(R.menu.bottom_nav_menu);
+        else if (accountLevel == 1)
+            bottomNavigationView.inflateMenu(R.menu.new_botnav);
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
         if (savedInstanceState == null)
             bottomNavigationView.setSelectedItemId(R.id.home_navigation);

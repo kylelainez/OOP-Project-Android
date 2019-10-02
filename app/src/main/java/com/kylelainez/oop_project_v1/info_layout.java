@@ -3,6 +3,7 @@ package com.kylelainez.oop_project_v1;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,6 +32,7 @@ public class info_layout extends Activity implements RecyclerViewAdapter.ItemCli
     DatabaseReference mconditionRef = mRootRef.child("condition");
 
     ArrayList<String> animalNames = new ArrayList<>();
+    Button asd;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,6 +41,7 @@ public class info_layout extends Activity implements RecyclerViewAdapter.ItemCli
         titleText = findViewById(R.id.titleText);
         snippetText = findViewById(R.id.snippetText);
         imageView = findViewById(R.id.menu_image);
+        asd = findViewById(R.id.asd);
         setValues();
 
 
@@ -68,6 +71,12 @@ public class info_layout extends Activity implements RecyclerViewAdapter.ItemCli
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
+            }
+        });
+        asd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mconditionRef.setValue("Testing");
             }
         });
     }
