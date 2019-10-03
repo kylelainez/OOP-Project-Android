@@ -20,6 +20,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public class info_layout extends Activity implements RecyclerViewAdapter.ItemClickListener{
     private TextView titleText, snippetText;
@@ -31,7 +34,9 @@ public class info_layout extends Activity implements RecyclerViewAdapter.ItemCli
     DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
     DatabaseReference mconditionRef = mRootRef.child("condition");
 
-    ArrayList<String> animalNames = new ArrayList<>();
+    ArrayList<String> animalNames;
+    ArrayList<Object> values;
+    Map<String,Object> map = new HashMap<>();
     Button asd;
 
     @Override
@@ -43,16 +48,20 @@ public class info_layout extends Activity implements RecyclerViewAdapter.ItemCli
         imageView = findViewById(R.id.menu_image);
         asd = findViewById(R.id.asd);
         setValues();
+        map.put("Horse",1);
+        map.put("Cow",2);
+        map.put("Camel",3);
+        map.put("Sheep",4);
+        map.put("Goat",5);
+        map.put("Test", 6);
 
-
-        animalNames.add("Horse");
-        animalNames.add("Cow");
-        animalNames.add("Camel");
-        animalNames.add("Sheep");
-        animalNames.add("Goat");
+        values = new ArrayList<>(map.values());
+        animalNames = new ArrayList<>(values.size());
+        for (Object object:values)
+            animalNames.add(Objects.toString(object));
         RecyclerView recyclerView = findViewById(R.id.menu_recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new RecyclerViewAdapter(this, animalNames);
+        adapter = new RecyclerViewAdapter(this,animalNames);
         adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
     }

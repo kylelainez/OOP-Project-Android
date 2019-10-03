@@ -1,15 +1,19 @@
 package com.kylelainez.oop_project_v1;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import java.util.Timer;
@@ -22,28 +26,42 @@ public class HomeFragment extends Fragment {
     private Timer timer;
     private int current_position = 0;
     private View view;
+    private TextView name;
+    private static final String TAG = "HomeFragment";
+    private String fName, lName, mobileNumber;
+
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.home_screen, container, false);
-
-        if (getActivity() != null) {
-            sliderAdapter();
-        }
+        viewPager = view.findViewById(R.id.viewpager);
+        customSwipeAdapter = new CustomSwipeAdapter(getActivity());
+        viewPager.setAdapter(customSwipeAdapter);
+        name = view.findViewById(R.id.name_profile_home);
         createSlideShow();
+
+        Intent intent = getActivity().getIntent();
+        fName = intent.getStringExtra(LoginActivity.EXTRA_FNAME);
+        lName = intent.getStringExtra(LoginActivity.EXTRA_LNAME);
+        mobileNumber = intent.getStringExtra(LoginActivity.EXTRA_MOBILE);
+
+        name.setText(fName + " " + lName);
+
         return view;
     }
+//    private PagerAdapter buildAdapter() {
+//        return(new (getActivity(), getChildFragmentManager()));
+//    }
 
     private void createSlideShow() {
         final Handler handler = new Handler();
         final Runnable runnable = new Runnable() {
             @Override
             public void run() {
-                if (current_position == Integer.MAX_VALUE) {
+                if(current_position == Integer.MAX_VALUE)
                     current_position = 0;
-                    viewPager.setCurrentItem(current_position++, true);
-                }
+                    viewPager.setCurrentItem(current_position++,true);
             }
         };
 
@@ -56,17 +74,18 @@ public class HomeFragment extends Fragment {
         }, 250, 2500);
     }
 
-    private void sliderAdapter() {
-        ViewPager viewPager = view.findViewById(R.id.viewpager);
-        customSwipeAdapter = new CustomSwipeAdapter(getActivity());
-
-        viewPager.setAdapter(customSwipeAdapter);
-    }
+//    private void sliderAdapter() {
+//        viewPager = view.findViewById(R.id.viewpager);
+//        customSwipeAdapter = new CustomSwipeAdapter(getActivity());
+//
+//        viewPager.setAdapter(customSwipeAdapter);
+//    }
 
 //    @Override
 //    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-//        viewPager = getView().findViewById(R.id.view_pager);
-//        customSwipeAdapter = new CustomSwipeAdapter(getActivity());
+//        viewPager = view.findViewById(R.id.view_pager);
+//        customSwipeAdapter = new CustomSwipeAdapter(getFrag);
 //        viewPager.setAdapter(customSwipeAdapter);
+//        createSlideShow();
 //    }
 }

@@ -11,6 +11,10 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapLocations {
+    public int getRestaurants() {
+        return restaurants.length;
+    }
+
     private Marker restaurants[] = new Marker[5];
     private Marker internetCafe[] = new Marker[1];
     private Marker laundry[] = new Marker[1];
@@ -22,9 +26,9 @@ public class MapLocations {
             .title("Jollibee Pureza")
             .snippet("Open 24 Hours");
 
-    public int getRestaurants(){
-        return restaurants.length;
-    }
+//    public int getRestaurants(){
+//        return restaurants.length;
+//    }
     public MapLocations(){
 
     }

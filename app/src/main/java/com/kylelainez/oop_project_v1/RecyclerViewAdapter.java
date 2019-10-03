@@ -14,41 +14,45 @@ import java.util.List;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
 
-    private List<String> mData;
+    private List<String> foodName;
+    private List<Integer> foodPrice;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
-    RecyclerViewAdapter(Context context, List<String> data){
+    RecyclerViewAdapter(Context context, List<String> foodName,List<Integer> foodPrice){
         this.mInflater = LayoutInflater.from(context);
-        this.mData = data;
+        this.foodName = foodName;
+        this.foodPrice = foodPrice;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.eat_menu_item,parent,false);
+        View view = mInflater.inflate(R.layout.menu_item,parent,false);
         return new ViewHolder(view);
 
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String animal = mData.get(position);
-        holder.eat_menu_name.setText(animal);
+        String food = foodName.get(position);
+        int price = foodPrice.get(position);
+        holder.menu_food.setText(food);
+        holder.menu_price.setText(price);
     }
 
 
     @Override
     public int getItemCount() {
-        return mData.size();
+        return foodName.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        TextView eat_menu_name, eat_menu_cost;
+        TextView menu_food, menu_price;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            eat_menu_name = itemView.findViewById(R.id.eat_menu_name);
-            eat_menu_cost = itemView.findViewById(R.id.eat_menu_cost);
+            menu_food = itemView.findViewById(R.id.menu_food);
+            menu_price = itemView.findViewById(R.id.menu_price);
             itemView.setOnClickListener(this);
 
         }
@@ -61,7 +65,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     String getItem(int id){
-        return mData.get(id);
+        return foodName.get(id);
     }
 
     void setClickListener(ItemClickListener itemClickListener){

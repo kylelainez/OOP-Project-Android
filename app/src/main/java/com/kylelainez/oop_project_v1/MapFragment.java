@@ -70,13 +70,13 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.map_fragment, container, false);
+        View view = inflater.inflate(R.layout.kurt_map_fragment, container, false);
         mainActivity = new MainActivity();
 
-        restaurants = view.findViewById(R.id.restaurants);
-        laundry = view.findViewById(R.id.laundry);
-        internetCafe = view.findViewById(R.id.internetCafe);
-        convenienceStore = view.findViewById(R.id.convenienceStore);
+        restaurants = view.findViewById(R.id.eat_button);
+        laundry = view.findViewById(R.id.others_button);
+        internetCafe = view.findViewById(R.id.surf_button);
+        convenienceStore = view.findViewById(R.id.store_button);
         location = view.findViewById(R.id.location);
 
         restaurants.setOnClickListener(new View.OnClickListener() {
@@ -137,6 +137,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                 getDeviceLocation();
             }
         });
+//        TextView textView = view.findViewById(R.id.eat_places);
+//        textView.setText(MapLocations);
 //        MapLocations mapLocations = new MapLocations();
 //        int length = mapLocations.getRestaurants();
         return view;
