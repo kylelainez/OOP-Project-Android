@@ -33,8 +33,9 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_camera_black_24dp" />
-                            <entry key="sourceFile" value="C:\Users\kurtdariel\Desktop\OOP\Assets\cea_text.svg" />
+                            <entry key="assetSourceType" value="FILE" />
+                            <entry key="outputName" value="ic_login_btn" />
+                            <entry key="sourceFile" value="C:\Users\kurtdariel\Desktop\OOP\Assets\login_btn.svg" />
                           </map>
                         </option>
                       </PersistentState>

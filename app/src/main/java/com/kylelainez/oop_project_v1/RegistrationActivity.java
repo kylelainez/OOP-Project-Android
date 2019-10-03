@@ -34,7 +34,7 @@ public class RegistrationActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         confirmPassword = findViewById(R.id.password2);
         mAlreadyHaveAcctBtn = findViewById(R.id.alreadyHaveAccountBtn);
-        mNextButton = findViewById(R.id.nextBtn);
+        mNextButton = findViewById(R.id.continueBtn);
 
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ShowToast")

@@ -13,5 +13,14 @@
         <item name="android:statusBarColor">@color/transparent</item>
     </style>
 
+    <style name="MyEditTextTheme">
+        <item name="colorControlNormal">#D10303</item>
+        <item name="colorControlActivated">#0041FF</item>
+        <item name="colorControlHighlight">#09FF00</item>
+    </style>
+
+    <style name="MapButtonTheme">
+
+    </style>
 
 </resources>

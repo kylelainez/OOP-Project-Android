@@ -43,26 +43,26 @@
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:background="@drawable/info_card"
+                    android:background="@drawable/map_btn_bg"
                     android:drawableStart="@drawable/eat_icon"
                     android:fontFamily="@font/worksans_medium"
                     android:paddingLeft="10dp"
                     android:text="DINE"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     android:layout_margin="5dp"
-                    android:padding="10dp"/>
+                    android:padding="10dp" />
 
                 <Button
                     android:id="@+id/store_button"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:background="@drawable/info_card"
+                    android:background="@drawable/map_btn_bg"
                     android:drawableStart="@drawable/store_icon"
                     android:fontFamily="@font/worksans_medium"
                     android:paddingLeft="10dp"
                     android:text=" STORE"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     android:layout_margin="5dp"
                     android:padding="10dp"/>
 
@@ -71,12 +71,12 @@
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:background="@drawable/info_card"
+                    android:background="@drawable/map_btn_bg"
                     android:drawableStart="@drawable/surf_icon"
                     android:fontFamily="@font/worksans_medium"
                     android:paddingLeft="10dp"
                     android:text=" SURF"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     android:layout_margin="5dp"
                     android:padding="10dp"/>
 
@@ -85,12 +85,12 @@
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:background="@drawable/info_card"
+                    android:background="@drawable/map_btn_bg"
                     android:drawableStart="@drawable/others_icon"
                     android:fontFamily="@font/worksans_medium"
                     android:paddingLeft="10dp"
-                    android:text=" OTHERS"
-                    android:textSize="16sp"
+                    android:text="OTHERS"
+                    android:textSize="14sp"
                     android:layout_margin="5dp"
                     android:padding="10dp"/>
 

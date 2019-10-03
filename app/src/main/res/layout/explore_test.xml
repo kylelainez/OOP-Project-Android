@@ -1,119 +1,114 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:paddingRight="25dp"
+    android:paddingLeft="25dp"
+    android:paddingBottom="36dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:elevation="1dp"
-        android:orientation="vertical">
+    <EditText
+        android:id="@+id/last_name"
+        android:layout_width="170dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="36dp"
+        android:ems="10"
+        android:gravity="left"
+        android:hint="First Name"
+        android:inputType="textPersonName"
+        android:theme="@style/MyEditTextTheme"
+        app:layout_constraintHorizontal_bias="0.118"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@color/transparent"
-            android:scrollbars="none">
+    <EditText
+        android:id="@+id/first_name"
+        android:layout_width="170dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="36dp"
+        android:ems="10"
+        android:gravity="left"
+        android:hint="Last Name"
+        android:inputType="textPersonName"
+        android:theme="@style/MyEditTextTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.962"
+        app:layout_constraintStart_toEndOf="@+id/last_name"
+        app:layout_constraintTop_toTopOf="parent" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="200dp"
-                android:orientation="horizontal">
+    <EditText
+        android:id="@+id/email_address"
+        android:layout_width="362dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Email Address"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.56"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/last_name"
+        app:layout_constraintVertical_bias="0.0" />
 
-                <TextView
-                    android:id="@+id/one"
-                    android:layout_width="wrap_content"
-                    android:layout_height="180dp"
-                    android:background="@color/colorPrimary"
-                    android:fontFamily="@font/montserrat_bold"
-                    android:gravity="center"
-                    android:text="ADS HERE"
-                    android:padding="@dimen/d5"
-                    android:textColor="#E9E8E8"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:textSize="50sp"/>
+    <EditText
+        android:id="@+id/phone_number"
+        android:layout_width="362dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:hint="phone number"
+        android:inputType="phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email_address"
+        app:layout_constraintVertical_bias="0.0" />
 
-                <TextView
-                    android:id="@+id/two"
-                    android:layout_width="wrap_content"
-                    android:layout_height="180dp"
-                    android:background="@color/colorPrimary"
-                    android:fontFamily="@font/montserrat_bold"
-                    android:gravity="center"
-                    android:text="ADS HERE"
-                    android:padding="@dimen/d5"
-                    android:textColor="#E9E8E8"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:textSize="50sp"/>
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="362dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:hint="Enter Password"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phone_number"
+        app:layout_constraintVertical_bias="0.0" />
 
-                <TextView
-                    android:id="@+id/three"
-                    android:layout_width="wrap_content"
-                    android:layout_height="180dp"
-                    android:background="@color/colorPrimary"
-                    android:fontFamily="@font/montserrat_bold"
-                    android:gravity="center"
-                    android:text="ADS HERE"
-                    android:padding="@dimen/d5"
-                    android:textColor="#E9E8E8"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:textSize="50sp"/>
+    <EditText
+        android:id="@+id/confirm_password"
+        android:layout_width="362dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password"
+        app:layout_constraintVertical_bias="0.021" />
 
-                <TextView
-                    android:id="@+id/four"
-                    android:layout_width="wrap_content"
-                    android:layout_height="180dp"
-                    android:background="@color/colorPrimary"
-                    android:fontFamily="@font/montserrat_bold"
-                    android:gravity="center"
-                    android:text="ADS HERE"
-                    android:padding="@dimen/d5"
-                    android:textColor="#E9E8E8"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:textSize="50sp"/>
-
-                <TextView
-                    android:id="@+id/five"
-                    android:layout_width="wrap_content"
-                    android:layout_height="180dp"
-                    android:background="@color/colorPrimary"
-                    android:fontFamily="@font/montserrat_bold"
-                    android:gravity="center"
-                    android:text="ADS HERE"
-                    android:padding="@dimen/d5"
-                    android:textColor="#E9E8E8"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:textSize="50sp"/>
-
-                <TextView
-                    android:id="@+id/six"
-                    android:layout_width="wrap_content"
-                    android:layout_height="180dp"
-                    android:background="@color/colorPrimary"
-                    android:fontFamily="@font/montserrat_bold"
-                    android:gravity="center"
-                    android:text="ADS HERE"
-                    android:padding="@dimen/d5"
-                    android:textColor="#E9E8E8"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:textSize="50sp"/>
-
-            </LinearLayout>
-        </HorizontalScrollView>
-    </LinearLayout>
-
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:background="@color/transparent"
+        android:src="@drawable/ic_continue_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/confirm_password" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
