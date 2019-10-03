@@ -29,15 +29,18 @@ import java.util.Map;
 public class LoginActivity extends AppCompatActivity {
     EditText emailId, password;
     ImageButton btnSignIn;
-    TextView tvSignUp;
+    TextView tvSignUp, clientSignUp;
     FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
     private FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
     private static final String TAG = "LoginActivity";
     public static final String EXTRA_FNAME = "com.kylelainez.oop_project_v1.EXTRA_FNAME";
+    public static final String EXTRA_ESTABLISHMENT = "com.kylelainez.oop_project_v1.EXTRA_ESTABLISHMENT";
     public static final String EXTRA_LNAME = "com.kylelainez.oop_project_v1.EXTRA_LNAME";
     public static final String EXTRA_MOBILE= "com.kylelainez.oop_project_v1.EXTRA_MOBILE";
-    private String fName, lName, mobileNumber;
+    public static final String EXTRA_TYPE = "com.kylelainez.oop_project_v1.EXTRA_TYPE";
+    private String fName, lName, mobileNumber, establishmentName, establismentType;
+    private Boolean isClient = false;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -49,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         btnSignIn = findViewById(R.id.login_button);
         tvSignUp = findViewById(R.id.create_account);
+        clientSignUp = findViewById(R.id.client_register);
 
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -87,13 +91,24 @@ public class LoginActivity extends AppCompatActivity {
                                                 fName = documentSnapshot.getString("FirstName");
                                                 lName = documentSnapshot.getString("LastName");
                                                 mobileNumber = documentSnapshot.getString("MobileNumber");
+                                                establishmentName = documentSnapshot.getString("Establishment");
+                                                establismentType = documentSnapshot.getString("Type");
 
-                                                Log.d(TAG, "onComplete: " + fName + " " + lName);
-                                                Intent intToHome = new Intent(LoginActivity.this, MainActivity.class);
-                                                intToHome.putExtra(EXTRA_FNAME,fName);
-                                                intToHome.putExtra(EXTRA_LNAME,lName);
-                                                intToHome.putExtra(EXTRA_MOBILE,mobileNumber);
-                                                startActivity(intToHome);
+                                                isClient = documentSnapshot.getBoolean("isClient");
+                                                if (!isClient) {
+                                                    Intent intToHome = new Intent(LoginActivity.this, MainActivity.class);
+                                                    intToHome.putExtra(EXTRA_FNAME, fName);
+                                                    intToHome.putExtra(EXTRA_LNAME, lName);
+                                                    intToHome.putExtra(EXTRA_MOBILE, mobileNumber);
+                                                    startActivity(intToHome);
+                                                }else{
+                                                    //Start Client Activity
+                                                    Intent intToHome = new Intent(LoginActivity.this, MainActivity.class);
+                                                    intToHome.putExtra(EXTRA_ESTABLISHMENT,establishmentName );
+                                                    intToHome.putExtra(EXTRA_MOBILE, mobileNumber);
+                                                    intToHome.putExtra(EXTRA_TYPE,establismentType);
+                                                    startActivity(intToHome);
+                                                }
                                             }
                                         });
                             }
@@ -101,7 +116,6 @@ public class LoginActivity extends AppCompatActivity {
                     });
                 } else {
                     Toast.makeText(LoginActivity.this, "Error Occurred!", Toast.LENGTH_SHORT).show();
-
                 }
             }
         });
@@ -111,6 +125,14 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intSignUp = new Intent(LoginActivity.this, RegistrationActivity.class);
                 startActivity(intSignUp);
+            }
+        });
+
+        clientSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, RegistrationClientActivity.class);
+                startActivity(intent);
             }
         });
     }

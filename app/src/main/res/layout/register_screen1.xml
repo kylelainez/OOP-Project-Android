@@ -52,7 +52,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="360dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:paddingLeft="25dp"
             android:paddingRight="25dp"
             android:paddingBottom="36dp">
@@ -153,7 +153,7 @@
                 android:id="@+id/continueBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="66dp"
+                android:layout_marginTop="8dp"
                 android:background="@color/transparent"
                 android:src="@drawable/ic_continue_button"
                 app:layout_constraintEnd_toEndOf="parent"
