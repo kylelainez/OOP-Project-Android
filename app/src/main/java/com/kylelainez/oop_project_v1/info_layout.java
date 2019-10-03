@@ -3,6 +3,7 @@ package com.kylelainez.oop_project_v1;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,6 +20,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public class info_layout extends Activity implements RecyclerViewAdapter.ItemClickListener{
     private TextView titleText, snippetText;
@@ -30,7 +34,9 @@ public class info_layout extends Activity implements RecyclerViewAdapter.ItemCli
     DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
     DatabaseReference mconditionRef = mRootRef.child("condition");
 
-    ArrayList<String> animalNames = new ArrayList<>();
+    ArrayList<String> animalNames;
+    ArrayList<Object> values;
+    Map<String,Object> map = new HashMap<>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -40,16 +46,18 @@ public class info_layout extends Activity implements RecyclerViewAdapter.ItemCli
         snippetText = findViewById(R.id.snippetText);
         imageView = findViewById(R.id.menu_image);
         setValues();
+        map.put("Horse",1);
+        map.put("Cow",2);
+        map.put("Camel",3);
+        map.put("Sheep",4);
+        map.put("Goat",5);
+        map.put("Test", 6);
 
-
-        animalNames.add("Horse");
-        animalNames.add("Cow");
-        animalNames.add("Camel");
-        animalNames.add("Sheep");
-        animalNames.add("Goat");
+        animalNames = new ArrayList<>(map.keySet());
+        values = new ArrayList<>(map.values());
         RecyclerView recyclerView = findViewById(R.id.menu_recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new RecyclerViewAdapter(this, animalNames);
+        adapter = new RecyclerViewAdapter(this,animalNames,values);
         adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
     }

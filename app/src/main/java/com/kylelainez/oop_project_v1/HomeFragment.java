@@ -1,11 +1,14 @@
 package com.kylelainez.oop_project_v1;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,6 +26,10 @@ public class HomeFragment extends Fragment {
     private Timer timer;
     private int current_position = 0;
     private View view;
+    private TextView name;
+    private static final String TAG = "HomeFragment";
+    private String fName, lName, mobileNumber;
+
 
     @Nullable
     @Override
@@ -31,8 +38,16 @@ public class HomeFragment extends Fragment {
         viewPager = view.findViewById(R.id.viewpager);
         customSwipeAdapter = new CustomSwipeAdapter(getActivity());
         viewPager.setAdapter(customSwipeAdapter);
-
+        name = view.findViewById(R.id.name_profile_home);
         createSlideShow();
+
+        Intent intent = getActivity().getIntent();
+        fName = intent.getStringExtra(LoginActivity.EXTRA_FNAME);
+        lName = intent.getStringExtra(LoginActivity.EXTRA_LNAME);
+        mobileNumber = intent.getStringExtra(LoginActivity.EXTRA_MOBILE);
+
+        name.setText(fName + " " + lName);
+
         return view;
     }
 //    private PagerAdapter buildAdapter() {
