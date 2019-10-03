@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,27 +26,29 @@ import java.util.Map;
 
 public class RegistrationActivity extends AppCompatActivity {
 
-    EditText emailAddress, password, confirmPassword;
+    EditText emailAddress, password, confirmPassword, fName, lName, mobile;
     ImageButton mNextButton;
-    TextView mAlreadyHaveAcctBtn,errorMessage;
+    TextView mAlreadyHaveAcctBtn;
     FirebaseAuth mFirebaseAuth;
     FirebaseFirestore mFirebaseFirestore = FirebaseFirestore.getInstance();
     Map<String,Object> map = new HashMap<>();
-    private String firstName = "SampleFirst", lastName = "LastSample", mobileNumber = "902912451";
+    private String firstName, lastName, mobileNumber;
     private static final String TAG = "RegistrationActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_screen1);
 
         mFirebaseAuth = FirebaseAuth.getInstance();
-        emailAddress = findViewById(R.id.username);
+        emailAddress = findViewById(R.id.email_address);
         password = findViewById(R.id.password);
-        confirmPassword = findViewById(R.id.password2);
+        confirmPassword = findViewById(R.id.confirm_password);
         mAlreadyHaveAcctBtn = findViewById(R.id.alreadyHaveAccountBtn);
         mNextButton = findViewById(R.id.continueBtn);
-        mNextButton = findViewById(R.id.nextBtn);
-        errorMessage = findViewById(R.id.error_message);
+        fName = findViewById(R.id.first_name);
+        lName = findViewById(R.id.last_name);
+        mobile = findViewById(R.id.phone_number);
 
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ShowToast")
@@ -54,47 +57,70 @@ public class RegistrationActivity extends AppCompatActivity {
                 final String email =  emailAddress.getText().toString();
                 final String pw = password.getText().toString();
                 String pwConfirm = confirmPassword.getText().toString();
+                firstName = fName.getText().toString();
+                lastName = lName.getText().toString();
+                mobileNumber = mobile.getText().toString();
 
                 if (email.isEmpty()){
-                    emailAddress.setError("Please enter valid email address");
+                    emailAddress.setError("Please enter email address");
                     emailAddress.requestFocus();
                 }
-                else if (pw.isEmpty()){
+                if (pw.isEmpty()){
                     password.setError("Please enter password");
                     password.requestFocus();
                 }
-                else if (pwConfirm.isEmpty()){
+                if (firstName.isEmpty()){
+                    fName.setError("Please Enter First Name");
+                    fName.requestFocus();
+                }
+                if (lastName.isEmpty()){
+                    lName.setError("Please Enter Last Name");
+                    lName.requestFocus();
+                }
+                if (mobileNumber.isEmpty()){
+                    mobile.setError("Please Enter Phone Number");
+                    mobile.requestFocus();
+                }
+                if (pwConfirm.isEmpty()){
                     confirmPassword.setError("Please confirm password");
                     confirmPassword.requestFocus();
                 }
-
-                else if (email.isEmpty() && pw.isEmpty() && pwConfirm.isEmpty()){
+                if (email.isEmpty() || pw.isEmpty() || pwConfirm.isEmpty() || firstName.isEmpty()
+                || lastName.isEmpty() || mobileNumber.isEmpty()){
                     Toast.makeText(RegistrationActivity.this,"Fields are empty!",Toast.LENGTH_SHORT);
                 }
-                else if (!(email.isEmpty() && pw.isEmpty() && pwConfirm.isEmpty())){
-                    mFirebaseAuth.createUserWithEmailAndPassword(email,pw)
-                            .addOnCompleteListener(RegistrationActivity.this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(!task.isSuccessful()){
-                                Toast.makeText(RegistrationActivity.this,"Sign Up Unsuccessful",
-                                        Toast.LENGTH_SHORT);
-                            }else{
-                                map.put("FirstName",firstName);
-                                map.put("LastName",lastName);
-                                map.put("MobileNumber",mobileNumber);
-                                map.put("isAdmin", false);
-                                mFirebaseFirestore.collection("UserAuth").document(email)
-                                        .set(map);
-                                startActivity(new Intent(RegistrationActivity.this,LoginActivity.class));
+
+                 if (!(email.isEmpty()|| pw.isEmpty() || pwConfirm.isEmpty()|| firstName.isEmpty()
+                        || lastName.isEmpty() || mobileNumber.isEmpty())){
+                    if (pw.equals(pwConfirm)) {
+                        mFirebaseAuth.createUserWithEmailAndPassword(email, pw)
+                                .addOnCompleteListener(RegistrationActivity.this, new OnCompleteListener<AuthResult>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<AuthResult> task) {
+                                        if (!task.isSuccessful()) {
+                                            Toast.makeText(RegistrationActivity.this, "Sign Up Unsuccessful",
+                                                    Toast.LENGTH_SHORT);
+                                        } else {
+                                            map.put("FirstName", firstName);
+                                            map.put("LastName", lastName);
+                                            map.put("MobileNumber", mobileNumber);
+                                            map.put("isAdmin", false);
+                                            mFirebaseFirestore.collection("UserAuth").document(email)
+                                                    .set(map);
+                                            startActivity(new Intent(RegistrationActivity.this, LoginActivity.class));
+                                        }
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                emailAddress.setError("Email already Used!!!");
+                                emailAddress.requestFocus();
                             }
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                           errorMessage.setText("Account already Exist!!!");
-                        }
-                    });
+                        });
+                    }else {
+                        confirmPassword.setError("Password does not match!");
+                        confirmPassword.requestFocus();
+                    }
                 } else{
                     Toast.makeText(RegistrationActivity.this,"Error Occurred!",Toast.LENGTH_SHORT);
                 }
