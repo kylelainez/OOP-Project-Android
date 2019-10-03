@@ -37,7 +37,6 @@ public class info_layout extends Activity implements RecyclerViewAdapter.ItemCli
     ArrayList<String> animalNames;
     ArrayList<Object> values;
     Map<String,Object> map = new HashMap<>();
-    Button asd;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,7 +45,6 @@ public class info_layout extends Activity implements RecyclerViewAdapter.ItemCli
         titleText = findViewById(R.id.titleText);
         snippetText = findViewById(R.id.snippetText);
         imageView = findViewById(R.id.menu_image);
-        asd = findViewById(R.id.asd);
         setValues();
         map.put("Horse",1);
         map.put("Cow",2);
@@ -55,13 +53,11 @@ public class info_layout extends Activity implements RecyclerViewAdapter.ItemCli
         map.put("Goat",5);
         map.put("Test", 6);
 
+        animalNames = new ArrayList<>(map.keySet());
         values = new ArrayList<>(map.values());
-        animalNames = new ArrayList<>(values.size());
-        for (Object object:values)
-            animalNames.add(Objects.toString(object));
         RecyclerView recyclerView = findViewById(R.id.menu_recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new RecyclerViewAdapter(this,animalNames);
+        adapter = new RecyclerViewAdapter(this,animalNames,values);
         adapter.setClickListener(this);
         recyclerView.setAdapter(adapter);
     }
@@ -80,12 +76,6 @@ public class info_layout extends Activity implements RecyclerViewAdapter.ItemCli
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
-            }
-        });
-        asd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mconditionRef.setValue("Testing");
             }
         });
     }

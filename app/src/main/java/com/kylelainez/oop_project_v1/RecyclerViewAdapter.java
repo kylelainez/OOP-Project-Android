@@ -15,11 +15,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
 
     private List<String> foodName;
-    private List<Integer> foodPrice;
+    private List<Object> foodPrice;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
-    RecyclerViewAdapter(Context context, List<String> foodName,List<Integer> foodPrice){
+    RecyclerViewAdapter(Context context, List<String> foodName,List<Object> foodPrice){
         this.mInflater = LayoutInflater.from(context);
         this.foodName = foodName;
         this.foodPrice = foodPrice;
@@ -36,9 +36,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         String food = foodName.get(position);
-        int price = foodPrice.get(position);
+        Object price = foodPrice.get(position);
         holder.menu_food.setText(food);
-        holder.menu_price.setText(price);
+        String asd = price.toString();
+        holder.menu_price.setText(asd);
     }
 
 
