@@ -67,6 +67,9 @@ public class MainActivity extends AppCompatActivity {
                         case R.id.maps_navigation:
                             fragment = new MapFragment();
                             break;
+                        case R.id.scanqr_navigation:
+                            fragment = new ScanFragment();
+                            break;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.frame_container,
                             fragment).commit();
