@@ -2,6 +2,7 @@ package com.kylelainez.oop_project_v1;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -13,11 +14,16 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,10 +39,12 @@ public class info_layout extends Activity implements RecyclerViewAdapter.ItemCli
 
     DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
     DatabaseReference mconditionRef = mRootRef.child("condition");
+    FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
 
     ArrayList<String> animalNames;
     ArrayList<Object> values;
     Map<String,Object> map = new HashMap<>();
+    private static final String TAG = "info_layout";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,20 +54,28 @@ public class info_layout extends Activity implements RecyclerViewAdapter.ItemCli
         snippetText = findViewById(R.id.snippetText);
         imageView = findViewById(R.id.menu_image);
         setValues();
-        map.put("Horse",1);
-        map.put("Cow",2);
-        map.put("Camel",3);
-        map.put("Sheep",4);
-        map.put("Goat",5);
-        map.put("Test", 6);
+        firebaseFirestore.collection("Menu").document(title).get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        Log.d(TAG, "onSuccess: " + title);
+                        map = documentSnapshot.getData();
+                        animalNames = new ArrayList<>(map.keySet());
+                        values = new ArrayList<>(map.values());
+                        RecyclerView recyclerView = findViewById(R.id.menu_recycler);
+                        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                        adapter = new RecyclerViewAdapter(getApplicationContext(),animalNames,values);
+                        recyclerView.setAdapter(adapter);
+                    }
+                })
+                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
 
-        animalNames = new ArrayList<>(map.keySet());
-        values = new ArrayList<>(map.values());
-        RecyclerView recyclerView = findViewById(R.id.menu_recycler);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new RecyclerViewAdapter(this,animalNames,values);
-        adapter.setClickListener(this);
-        recyclerView.setAdapter(adapter);
+                    }
+                });
+
+
     }
 
     @Override
@@ -102,7 +118,7 @@ public class info_layout extends Activity implements RecyclerViewAdapter.ItemCli
 //            imageView = R.drawable.dunkin;
 //        else if (title.equals("Infinity"))
 //            imageView = R.drawable.infinity;
-//        else if (title.equals("Labahab ni Juan Laundry Shop"))
+//        else if (title.equals("Labahan ni Juan Laundry Shop"))
 //            imageView = R.drawable.labahan_ni_juan;
 //        else if (title.equals("7-Eleven"))
 //            imageView = R.drawable.seven_eleven;

@@ -9,6 +9,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary">
 
+
     <ImageView
         android:id="@+id/spotit_logo"
         android:layout_width="wrap_content"
@@ -23,19 +24,19 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.041" />
-
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/create_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="96dp"
         android:fontFamily="@font/worksans_bold"
         android:text="Create an account"
         android:textColor="@color/white"
         android:textSize="21sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -43,15 +44,11 @@
         android:id="@+id/fill_form"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"
+        android:layout_marginTop="10dp"
         app:cardCornerRadius="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/create_account"
-        app:layout_constraintVertical_bias="0.072">
+        app:layout_constraintTop_toBottomOf="@id/create_account">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="360dp"
@@ -60,31 +57,17 @@
             android:paddingRight="25dp"
             android:paddingBottom="36dp">
 
-            <EditText
-                android:id="@+id/last_name"
-                android:layout_width="150dp"
-                android:layout_height="66dp"
-                android:layout_marginTop="36dp"
-                android:ems="10"
-                android:hint="First Name"
-                android:inputType="textPersonName"
-                android:theme="@style/MyEditTextTheme"
-                app:layout_constraintHorizontal_bias="0.118"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/first_name"
-                android:layout_width="150dp"
+                android:id="@+id/establishment_name"
+                android:layout_width="310dp"
                 android:layout_height="66dp"
-                android:layout_marginTop="36dp"
+                android:layout_marginTop="16dp"
                 android:ems="10"
-                android:hint="Last Name"
+                android:hint="Establishment Name"
                 android:inputType="textPersonName"
                 android:theme="@style/MyEditTextTheme"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.962"
-                app:layout_constraintStart_toEndOf="@+id/last_name"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
@@ -97,9 +80,9 @@
                 android:inputType="textEmailAddress"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.56"
+                app:layout_constraintHorizontal_bias="0.68"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/last_name"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroup"
                 app:layout_constraintVertical_bias="0.0" />
 
             <EditText
@@ -111,7 +94,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:ems="10"
-                android:hint="Phone Number"
+                android:hint="Contact Number"
                 android:inputType="phone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.48"
@@ -150,29 +133,72 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/password"
-                app:layout_constraintVertical_bias="0.021" />
+                app:layout_constraintVertical_bias="0.123" />
 
             <ImageButton
                 android:id="@+id/continueBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="66dp"
+                android:layout_marginTop="8dp"
                 android:background="@color/transparent"
                 android:src="@drawable/ic_continue_button"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.439"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/confirm_password" />
 
-            <Switch
-                android:id="@+id/switch1"
+            <TextView
+                android:id="@+id/error_message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="Register as Client "
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:textColor="@color/red"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="0.05"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/confirm_password" />
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="310dp"
+                android:layout_height="66dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/establishment_name">
+
+                <RadioButton
+                    android:id="@+id/dine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Dine" />
+
+                <RadioButton
+                    android:id="@+id/store"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Store" />
+
+                <RadioButton
+                    android:id="@+id/surf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Surf" />
+
+                <RadioButton
+                    android:id="@+id/others"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Others" />
+
+            </RadioGroup>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
@@ -181,14 +207,13 @@
         android:id="@+id/alreadyHaveAccountBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
         android:fontFamily="@font/montserrat_bold"
         android:gravity="center"
         android:text="Already have an account?\nSign in >"
         android:textColor="@color/white"
         android:textSize="21sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.434"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fill_form" />
 

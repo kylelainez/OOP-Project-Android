@@ -2,7 +2,6 @@ package com.kylelainez.oop_project_v1;
 
 import android.Manifest;
 import android.app.Dialog;
-import android.content.Intent;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,12 +12,10 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
+
 
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;

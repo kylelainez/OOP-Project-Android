@@ -1,18 +1,18 @@
 package com.kylelainez.oop_project_v1;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.Switch;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -24,21 +24,23 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RegistrationActivity extends AppCompatActivity {
+public class RegistrationClientActivity extends AppCompatActivity {
 
-    EditText emailAddress, password, confirmPassword, fName, lName, mobile;
+    EditText emailAddress, password, confirmPassword, establishmentName, mobile;
     ImageButton mNextButton;
     TextView mAlreadyHaveAcctBtn;
     FirebaseAuth mFirebaseAuth;
     FirebaseFirestore mFirebaseFirestore = FirebaseFirestore.getInstance();
     Map<String,Object> map = new HashMap<>();
-    private String firstName, lastName, mobileNumber;
-    private static final String TAG = "RegistrationActivity";
+    private String establishment, lastName, mobileNumber, radioButtonText;
+    private static final String TAG = "RegistrationClientActivity";
+    RadioGroup radioGroup;
+    RadioButton radioButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.register_screen1);
+        setContentView(R.layout.register_screen_client);
 
         mFirebaseAuth = FirebaseAuth.getInstance();
         emailAddress = findViewById(R.id.email_address);
@@ -46,9 +48,9 @@ public class RegistrationActivity extends AppCompatActivity {
         confirmPassword = findViewById(R.id.confirm_password);
         mAlreadyHaveAcctBtn = findViewById(R.id.alreadyHaveAccountBtn);
         mNextButton = findViewById(R.id.continueBtn);
-        fName = findViewById(R.id.first_name);
-        lName = findViewById(R.id.last_name);
+        establishmentName = findViewById(R.id.establishment_name);
         mobile = findViewById(R.id.phone_number);
+        radioGroup = findViewById(R.id.radioGroup);
 
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ShowToast")
@@ -57,9 +59,11 @@ public class RegistrationActivity extends AppCompatActivity {
                 final String email =  emailAddress.getText().toString();
                 final String pw = password.getText().toString();
                 String pwConfirm = confirmPassword.getText().toString();
-                firstName = fName.getText().toString();
-                lastName = lName.getText().toString();
+                establishment = establishmentName.getText().toString();
                 mobileNumber = mobile.getText().toString();
+                int radioID = radioGroup.getCheckedRadioButtonId();
+                radioButton = findViewById(radioID);
+                radioButtonText = radioButton.getText().toString();
 
                 if (email.isEmpty()){
                     emailAddress.setError("Please enter email address");
@@ -69,13 +73,9 @@ public class RegistrationActivity extends AppCompatActivity {
                     password.setError("Please enter password");
                     password.requestFocus();
                 }
-                if (firstName.isEmpty()){
-                    fName.setError("Please Enter First Name");
-                    fName.requestFocus();
-                }
-                if (lastName.isEmpty()){
-                    lName.setError("Please Enter Last Name");
-                    lName.requestFocus();
+                if (establishment.isEmpty()){
+                    establishmentName.setError("Please Enter Establishment Name");
+                    establishmentName.requestFocus();
                 }
                 if (mobileNumber.isEmpty()){
                     mobile.setError("Please Enter Phone Number");
@@ -85,29 +85,29 @@ public class RegistrationActivity extends AppCompatActivity {
                     confirmPassword.setError("Please confirm password");
                     confirmPassword.requestFocus();
                 }
-                if (email.isEmpty() || pw.isEmpty() || pwConfirm.isEmpty() || firstName.isEmpty()
-                || lastName.isEmpty() || mobileNumber.isEmpty()){
-                    Toast.makeText(RegistrationActivity.this,"Fields are empty!",Toast.LENGTH_SHORT);
+                if (email.isEmpty() || pw.isEmpty() || pwConfirm.isEmpty() || establishment.isEmpty()
+                     || mobileNumber.isEmpty()){
+                    Toast.makeText(RegistrationClientActivity.this,"Fields are empty!",Toast.LENGTH_SHORT);
                 }
 
-                 if (!(email.isEmpty()|| pw.isEmpty() || pwConfirm.isEmpty()|| firstName.isEmpty()
-                        || lastName.isEmpty() || mobileNumber.isEmpty())){
+                 if (!(email.isEmpty()|| pw.isEmpty() || pwConfirm.isEmpty()|| establishment.isEmpty()
+                         || mobileNumber.isEmpty())){
                     if (pw.equals(pwConfirm)) {
                         mFirebaseAuth.createUserWithEmailAndPassword(email, pw)
-                                .addOnCompleteListener(RegistrationActivity.this, new OnCompleteListener<AuthResult>() {
+                                .addOnCompleteListener(RegistrationClientActivity.this, new OnCompleteListener<AuthResult>() {
                                     @Override
                                     public void onComplete(@NonNull Task<AuthResult> task) {
                                         if (!task.isSuccessful()) {
-                                            Toast.makeText(RegistrationActivity.this, "Sign Up Unsuccessful",
+                                            Toast.makeText(RegistrationClientActivity.this, "Sign Up Unsuccessful",
                                                     Toast.LENGTH_SHORT);
                                         } else {
-                                            map.put("FirstName", firstName);
-                                            map.put("LastName", lastName);
+                                            map.put("Establishment", establishment);
                                             map.put("MobileNumber", mobileNumber);
-                                            map.put("isClient", false);
+                                            map.put("Type",radioButtonText);
+                                            map.put("isClient", true);
                                             mFirebaseFirestore.collection("UserAuth").document(email)
                                                     .set(map);
-                                            startActivity(new Intent(RegistrationActivity.this, LoginActivity.class));
+                                            startActivity(new Intent(RegistrationClientActivity.this, LoginActivity.class));
                                         }
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
@@ -122,7 +122,7 @@ public class RegistrationActivity extends AppCompatActivity {
                         confirmPassword.requestFocus();
                     }
                 } else{
-                    Toast.makeText(RegistrationActivity.this,"Error Occurred!",Toast.LENGTH_SHORT);
+                    Toast.makeText(RegistrationClientActivity.this,"Error Occurred!",Toast.LENGTH_SHORT);
                 }
             }
         });
@@ -130,7 +130,7 @@ public class RegistrationActivity extends AppCompatActivity {
         mAlreadyHaveAcctBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(RegistrationActivity.this,LoginActivity.class);
+                Intent i = new Intent(RegistrationClientActivity.this,LoginActivity.class);
                 startActivity(i);
             }
         });
