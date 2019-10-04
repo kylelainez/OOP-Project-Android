@@ -39,6 +39,28 @@
         app:layout_constraintStart_toEndOf="@+id/menu_image"
         app:layout_constraintTop_toBottomOf="@+id/titleText" />
 
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/transparent"
+        android:src="@drawable/ic_edit_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.661"
+        app:layout_constraintStart_toEndOf="@+id/menu_image"
+        app:layout_constraintTop_toBottomOf="@+id/snippetText" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/transparent"
+        android:src="@drawable/ic_delete_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.92"
+        app:layout_constraintStart_toEndOf="@+id/menu_image"
+        app:layout_constraintTop_toBottomOf="@+id/snippetText" />
+
     <ScrollView
         android:id="@+id/scroll_view"
         android:layout_width="match_parent"
@@ -56,6 +78,15 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ADD"
+                android:fontFamily="@font/montserrat_bold"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:background="@color/colorPrimary"/>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/menu_recycler"
                 android:layout_width="match_parent"
@@ -63,4 +94,5 @@
                 android:layout_marginBottom="24dp" />
         </LinearLayout>
     </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

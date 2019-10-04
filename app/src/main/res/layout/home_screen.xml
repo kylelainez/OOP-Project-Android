@@ -10,126 +10,9 @@
     android:layout_height="wrap_content"
     android:background="#FFFFFF">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/map_fragment_layout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo_home">
-
-        <!--%%%%%%% UNPOLISHED %%%%%%%-->
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:elevation="1dp"
-            android:orientation="vertical">
-
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:background="@color/transparent"
-                android:scrollbars="none">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="80dp"
-                    android:orientation="horizontal"
-                    android:paddingLeft="2dp">
-
-                    <Button
-                        android:id="@+id/eat_button"
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:background="@drawable/info_card"
-                        android:drawableStart="@drawable/eat_icon"
-                        android:fontFamily="@font/worksans_medium"
-                        android:paddingLeft="10dp"
-                        android:text="DINE"
-                        android:textSize="16sp"
-                        android:layout_margin="5dp"
-                        android:padding="10dp"/>
-
-                    <Button
-                        android:id="@+id/store_button"
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:background="@drawable/info_card"
-                        android:drawableStart="@drawable/store_icon"
-                        android:fontFamily="@font/worksans_medium"
-                        android:paddingLeft="10dp"
-                        android:text=" STORE"
-                        android:textSize="16sp"
-                        android:layout_margin="5dp"
-                        android:padding="10dp"/>
-
-                    <Button
-                        android:id="@+id/surf_button"
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:background="@drawable/info_card"
-                        android:drawableStart="@drawable/surf_icon"
-                        android:fontFamily="@font/worksans_medium"
-                        android:paddingLeft="10dp"
-                        android:text=" SURF"
-                        android:textSize="16sp"
-                        android:layout_margin="5dp"
-                        android:padding="10dp"/>
-
-                    <Button
-                        android:id="@+id/others_button"
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:background="@drawable/info_card"
-                        android:drawableStart="@drawable/others_icon"
-                        android:fontFamily="@font/worksans_medium"
-                        android:paddingLeft="10dp"
-                        android:text=" OTHERS"
-                        android:textSize="16sp"
-                        android:layout_margin="5dp"
-                        android:padding="10dp"/>
-
-
-                </LinearLayout>
-            </HorizontalScrollView>
-        </LinearLayout>
-
-    </RelativeLayout>
-
-<!--    <ImageView-->
-<!--        android:id="@+id/logo_home"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="90dp"-->
-<!--        android:contentDescription="@string/logo"-->
-<!--        android:background="@color/colorPrimary"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:srcCompat="@drawable/logo"-->
-<!--        android:paddingBottom="15dp"-->
-<!--        android:paddingTop="15dp"/>-->
-
-<!--    <ImageButton-->
-<!--        android:id="@+id/expanded_menu"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="32dp"-->
-<!--        android:background="@color/transparent"-->
-<!--        android:contentDescription="@string/menu_bar"-->
-<!--        app:layout_constraintEnd_toStartOf="@+id/logo_home"-->
-<!--        app:layout_constraintHorizontal_bias="0.478"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:srcCompat="@drawable/ic_menu_white_24dp" />-->
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview"
+        android:layout_marginTop="20dp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -140,7 +23,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#8595FF"
+            android:background="@drawable/home_profile"
             android:padding="15dp">
 
 
@@ -176,7 +59,7 @@
                 android:layout_marginTop="36dp"
                 android:fontFamily="@font/worksans_light"
                 android:text="@string/credit_points"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.13"
                 app:layout_constraintStart_toEndOf="@+id/profile_picture"
@@ -186,8 +69,9 @@
                 android:id="@+id/name_profile_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/worksans_black"
+                android:fontFamily="@font/worksans_regular"
                 android:text="@string/name"
+                android:textColor="@color/colorPrimary"
                 android:textSize="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.2"
@@ -200,7 +84,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/worksans_light"
                 android:text="@string/phone_number"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.16"
                 app:layout_constraintStart_toEndOf="@+id/profile_picture"
@@ -213,17 +97,18 @@
 
 
     <SearchView
+        android:layout_marginTop="20dp"
         android:id="@+id/searchView"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="380dp"
+        android:layout_height="50dp"
+        android:paddingRight="8dp"
+        android:background="@drawable/search_bg"
         android:iconifiedByDefault="false"
-        android:paddingBottom="5dp"
         android:queryHint="Search location, name or keyword"
         app:collapseIcon="@drawable/ic_arrow_back_white_24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/map_fragment_layout" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/whats_hot"
@@ -381,75 +266,190 @@
         </HorizontalScrollView>
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/explore_menu2"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="#FDFDFD"
-        android:fontFamily="@font/rubik_mono_one"
-        android:gravity="center"
-        android:text="EAT"
-        android:textColor="#313131"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="5dp"
-        android:textSize="50sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/explore_dine" />
+<!--    <LinearLayout-->
+<!--        android:id="@+id/explore_surf"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:elevation="1dp"-->
+<!--        android:orientation="vertical"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/explore_dine" >-->
 
-    <TextView
-        android:id="@+id/explore_menu3"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="#FDFDFD"
-        android:fontFamily="@font/rubik_mono_one"
-        android:gravity="center"
-        android:text="SHOP"
-        android:textColor="#313131"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="5dp"
-        android:textSize="50sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/explore_menu2" />
+<!--        <HorizontalScrollView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="200dp"-->
+<!--            android:background="@color/transparent"-->
+<!--            android:scrollbars="none">-->
 
-    <TextView
-        android:id="@+id/explore_menu4"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="#FDFDFD"
-        android:fontFamily="@font/rubik_mono_one"
-        android:gravity="center"
-        android:text="SURF"
-        android:textColor="#313131"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:textSize="50sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/explore_menu3" />
+<!--            <LinearLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="200dp"-->
+<!--                android:orientation="horizontal">-->
 
-    <TextView
-        android:id="@+id/explore_menu5"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@color/colorPrimary"
-        android:fontFamily="@font/rubik_mono_one"
-        android:gravity="center"
-        android:text=" "
-        android:textColor="#313131"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:textSize="50sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/explore_menu4"/>
+<!--                <TextView-->
+<!--                    android:id="@+id/one"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="180dp"-->
+<!--                    android:background="@color/colorPrimary"-->
+<!--                    android:fontFamily="@font/montserrat_bold"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="ADS HERE"-->
+<!--                    android:padding="@dimen/d5"-->
+<!--                    android:textColor="#E9E8E8"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:layout_marginLeft="10dp"-->
+<!--                    android:layout_marginRight="10dp"-->
+<!--                    android:textSize="50sp"/>-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/two"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="180dp"-->
+<!--                    android:background="@color/colorPrimary"-->
+<!--                    android:fontFamily="@font/montserrat_bold"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="ADS HERE"-->
+<!--                    android:padding="@dimen/d5"-->
+<!--                    android:textColor="#E9E8E8"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:layout_marginLeft="10dp"-->
+<!--                    android:layout_marginRight="10dp"-->
+<!--                    android:textSize="50sp"/>-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/three"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="180dp"-->
+<!--                    android:background="@color/colorPrimary"-->
+<!--                    android:fontFamily="@font/montserrat_bold"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="ADS HERE"-->
+<!--                    android:padding="@dimen/d5"-->
+<!--                    android:textColor="#E9E8E8"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:layout_marginLeft="10dp"-->
+<!--                    android:layout_marginRight="10dp"-->
+<!--                    android:textSize="50sp"/>-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/four"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="180dp"-->
+<!--                    android:background="@color/colorPrimary"-->
+<!--                    android:fontFamily="@font/montserrat_bold"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="ADS HERE"-->
+<!--                    android:padding="@dimen/d5"-->
+<!--                    android:textColor="#E9E8E8"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:layout_marginLeft="10dp"-->
+<!--                    android:layout_marginRight="10dp"-->
+<!--                    android:textSize="50sp"/>-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/five"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="180dp"-->
+<!--                    android:background="@color/colorPrimary"-->
+<!--                    android:fontFamily="@font/montserrat_bold"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="ADS HERE"-->
+<!--                    android:padding="@dimen/d5"-->
+<!--                    android:textColor="#E9E8E8"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:layout_marginLeft="10dp"-->
+<!--                    android:layout_marginRight="10dp"-->
+<!--                    android:textSize="50sp"/>-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/six"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="180dp"-->
+<!--                    android:background="@color/colorPrimary"-->
+<!--                    android:fontFamily="@font/montserrat_bold"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="ADS HERE"-->
+<!--                    android:padding="@dimen/d5"-->
+<!--                    android:textColor="#E9E8E8"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:layout_marginLeft="10dp"-->
+<!--                    android:layout_marginRight="10dp"-->
+<!--                    android:textSize="50sp"/>-->
+
+<!--            </LinearLayout>-->
+<!--        </HorizontalScrollView>-->
+<!--    </LinearLayout>-->
+<!--    -->
+<!--    <TextView-->
+<!--        android:id="@+id/explore_menu2"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="200dp"-->
+<!--        android:background="#FDFDFD"-->
+<!--        android:fontFamily="@font/rubik_mono_one"-->
+<!--        android:gravity="center"-->
+<!--        android:text="EAT"-->
+<!--        android:textColor="#313131"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginLeft="10dp"-->
+<!--        android:layout_marginRight="10dp"-->
+<!--        android:layout_marginBottom="5dp"-->
+<!--        android:textSize="50sp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/explore_dine" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/explore_menu3"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="200dp"-->
+<!--        android:background="#FDFDFD"-->
+<!--        android:fontFamily="@font/rubik_mono_one"-->
+<!--        android:gravity="center"-->
+<!--        android:text="SHOP"-->
+<!--        android:textColor="#313131"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginLeft="10dp"-->
+<!--        android:layout_marginRight="10dp"-->
+<!--        android:layout_marginBottom="5dp"-->
+<!--        android:textSize="50sp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/explore_menu2" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/explore_menu4"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="200dp"-->
+<!--        android:background="#FDFDFD"-->
+<!--        android:fontFamily="@font/rubik_mono_one"-->
+<!--        android:gravity="center"-->
+<!--        android:text="SURF"-->
+<!--        android:textColor="#313131"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginLeft="10dp"-->
+<!--        android:layout_marginRight="10dp"-->
+<!--        android:textSize="50sp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/explore_menu3" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/explore_menu5"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:background="@color/colorPrimary"-->
+<!--        android:fontFamily="@font/rubik_mono_one"-->
+<!--        android:gravity="center"-->
+<!--        android:text=" "-->
+<!--        android:textColor="#313131"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginLeft="10dp"-->
+<!--        android:layout_marginRight="10dp"-->
+<!--        android:textSize="50sp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/explore_menu4"/>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
