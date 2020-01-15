@@ -41,7 +41,7 @@ public class MapLocations {
             restaurants[1] = googleMap.addMarker(new MarkerOptions()
                     .position(new LatLng(14.601455, 121.004779))
                     .anchor(0.5f, 0.5f)
-                    .title("chowking")
+                    .title("Chowking")
                     .snippet("Open 24 Hours"));
 
             restaurants[2] = googleMap.addMarker(new MarkerOptions()
@@ -108,8 +108,8 @@ public class MapLocations {
             resID = R.drawable.jollibee;
         else if (title.equals("chowking"))
             resID = R.drawable.chowking;
-//        else if (title.equals("KFC Pureza"))
-//            resID = R.drawable.kfc;
+        else if (title.equals("KFC Pureza"))
+            resID = R.drawable.kfc;
 //        else if (title.equals("Dunkin Donut"))
 //            resID = R.drawable.dunkin;
 //        else if (title.equals("Infinity"))
