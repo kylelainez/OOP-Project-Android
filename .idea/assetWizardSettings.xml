@@ -34,8 +34,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="ic_edit_button" />
-                            <entry key="sourceFile" value="C:\Users\kurtdariel\Desktop\OOP\Assets\edit_button.svg" />
+                            <entry key="outputName" value="ic_load_now" />
+                            <entry key="sourceFile" value="C:\Users\kurtdariel\Desktop\OOP\Assets\load_now.svg" />
                           </map>
                         </option>
                       </PersistentState>
