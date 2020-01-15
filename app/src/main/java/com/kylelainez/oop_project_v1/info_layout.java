@@ -49,7 +49,7 @@ public class info_layout extends Activity implements RecyclerViewAdapter.ItemCli
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.info_layout);
+        setContentView(R.layout.info_layout_gia);
         titleText = findViewById(R.id.titleText);
         snippetText = findViewById(R.id.snippetText);
         imageView = findViewById(R.id.menu_image);
