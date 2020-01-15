@@ -38,8 +38,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         String food = foodName.get(position);
         Object price = foodPrice.get(position);
         holder.menu_food.setText(food);
-        String asd = price.toString();
-        holder.menu_price.setText(asd);
+        String foodPrice = price.toString();
+        holder.menu_price.setText("P" + foodPrice);
     }
 
 

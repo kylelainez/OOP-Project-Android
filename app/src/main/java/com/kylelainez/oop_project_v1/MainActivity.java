@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
     private static final String COURSE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
+    private static final String CAMERA = Manifest.permission.CAMERA;
     private static final int Request_Code = 1234;
     public Boolean LocationPermissionGranted = false;
     private static int accountLevel = 0;
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState == null)
             bottomNavigationView.setSelectedItemId(R.id.home_navigation);
         isServiceOK();
-        getLocationPermission();
+        getPermission();
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener =
@@ -97,23 +98,29 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
-    public void getLocationPermission() {                                                            //Gets Permissions for
-        Log.d(TAG, "getLocationPermission: Entered Permission Request");                        // Maps Usage
+    public void getPermission() {                                                            //Gets Permissions for
+        Log.d(TAG, "getPermission: Entered Permission Request");                        // Maps Usage
         String[] permissions = {Manifest.permission.ACCESS_FINE_LOCATION,
-                Manifest.permission.ACCESS_COARSE_LOCATION};
+                Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.CAMERA};
 
         if (ContextCompat.checkSelfPermission(this.getApplicationContext(),
                 FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             if (ContextCompat.checkSelfPermission(this.getApplicationContext(),
                     COURSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                 LocationPermissionGranted = true;
-                Log.d(TAG, "getLocationPermission: Permission is granted");
+                Log.d(TAG, "getPermission: Permission is granted");
+                if (ContextCompat.checkSelfPermission(this.getApplicationContext(),
+                        CAMERA) == PackageManager.PERMISSION_GRANTED){
+                    Log.d(TAG, "getPermission: Camera Permission Granted");
+                }else {
+
+                }ActivityCompat.requestPermissions(this, permissions, Request_Code);
             } else {
-                Log.d(TAG, "getLocationPermission: App Course Permission is declined");
+                Log.d(TAG, "getPermission: App Course Permission is declined");
                 ActivityCompat.requestPermissions(this, permissions, Request_Code);
             }
         } else {
-            Log.d(TAG, "getLocationPermission: App Fine Permission is declined");
+            Log.d(TAG, "getPermission: App Fine Permission is declined");
             ActivityCompat.requestPermissions(this, permissions, Request_Code);
         }
     }

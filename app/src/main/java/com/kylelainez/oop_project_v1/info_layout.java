@@ -110,10 +110,10 @@ public class info_layout extends Activity implements RecyclerViewAdapter.ItemCli
         snippetText.setText(snippet);
         if (title.equals("Jollibee Pureza"))
             imageView.setImageResource(R.drawable.jollibee);
-        else if (title.equals("chowking"))
+        else if (title.equals("Chowking"))
             imageView.setImageResource(R.drawable.chowking);
-//        else if (title.equals("KFC Pureza"))
-//            imageView = R.drawable.kfc;
+        else if (title.equals("KFC Pureza"))
+            imageView.setImageResource(R.drawable.kfc);
 //        else if (title.equals("Dunkin Donut"))
 //            imageView = R.drawable.dunkin;
 //        else if (title.equals("Infinity"))
