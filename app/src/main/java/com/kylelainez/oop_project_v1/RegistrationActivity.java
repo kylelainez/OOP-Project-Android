@@ -60,6 +60,7 @@ public class RegistrationActivity extends AppCompatActivity {
                 firstName = fName.getText().toString();
                 lastName = lName.getText().toString();
                 mobileNumber = mobile.getText().toString();
+                final int wallet = 0;
 
                 if (email.isEmpty()){
                     emailAddress.setError("Please enter email address");
@@ -104,7 +105,7 @@ public class RegistrationActivity extends AppCompatActivity {
                                             map.put("FirstName", firstName);
                                             map.put("LastName", lastName);
                                             map.put("MobileNumber", mobileNumber);
-                                            map.put("isClient", false);
+                                            map.put("Wallet", wallet);
                                             mFirebaseFirestore.collection("UserAuth").document(email)
                                                     .set(map);
                                             startActivity(new Intent(RegistrationActivity.this, LoginActivity.class));
