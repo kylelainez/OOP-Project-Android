@@ -1,103 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:background="#FFFFFF">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardview"
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/worksans_light"
+        android:text="juandelacruz@domain.com"
+        android:textColor="#0a0a0a"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo_home">
+        app:layout_constraintTop_toBottomOf="@+id/email_text" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="15dp">
+    <TextView
+        android:id="@+id/wallet_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="24dp"
+        android:text="Spot it Wallet"
+        android:textColor="#9FAAFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email" />
 
+    <TextView
+        android:id="@+id/email_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="26dp"
+        android:text="@string/signup_email_hint"
+        android:textColor="#9FAAFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phone_number" />
 
-            <ImageView
-                android:id="@+id/profile_picture"
-                android:layout_width="98dp"
-                android:layout_height="102dp"
-                android:contentDescription="@string/profile_picture"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.022"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:srcCompat="@drawable/avatar1" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
 
-            <TextView
-                android:id="@+id/credit_points"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="36dp"
-                android:fontFamily="@font/worksans_light"
-                android:text="@string/credit_points"
-                android:textColor="#0a0a0a"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.13"
-                app:layout_constraintStart_toEndOf="@+id/profile_picture"
-                app:layout_constraintTop_toBottomOf="@+id/phone_number" />
+        <ImageView
+            android:id="@+id/profile_picture"
+            android:layout_width="98dp"
+            android:layout_height="102dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/profile_picture"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@drawable/avatar1" />
 
-            <TextView
-                android:id="@+id/name_profile_home"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/worksans_black"
-                android:text="@string/name"
-                android:textSize="20dp"
-                android:textColor="#334AC9"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.2"
-                app:layout_constraintStart_toEndOf="@+id/profile_picture"
-                app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/name_profile_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="130dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="130dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/worksans_black"
+            android:text="@string/name"
+            android:textColor="#FFFFFF"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_picture" />
 
-            <TextView
-                android:id="@+id/phone_number"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/worksans_light"
-                android:text="@string/phone_number"
-                android:textColor="#0a0a0a"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.16"
-                app:layout_constraintStart_toEndOf="@+id/profile_picture"
-                app:layout_constraintTop_toBottomOf="@+id/name_profile_home" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <TextView
+        android:id="@+id/phone_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/worksans_light"
+        android:text="@string/phone_number"
+        android:textColor="#0a0a0a"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.cardview.widget.CardView>
+    <TextView
+        android:id="@+id/credit_points"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/worksans_light"
+        android:text="@string/credit_points"
+        android:textColor="#0a0a0a"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wallet_text" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/worksans_medium"
-        android:text="Transaction History"
-        android:textColor="#334AC9"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="40dp"
+        android:text="Mobile"
+        android:textColor="#9FAAFF"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardview" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+    <ImageButton
+        android:id="@+id/edit_profile_button"
+        android:layout_width="93dp"
+        android:layout_height="82dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="48dp"
+        android:background="@color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_edit_button_profile" />
+
+    <ImageButton
+        android:id="@+id/topup_button"
+        android:layout_width="95dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="50dp"
+        android:background="@color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_add_wallet_profile" />
 
     <TextView
-        android:id="@+id/explore_menu4"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="#FDFDFD"
-        android:fontFamily="@font/rubik_mono_one"
-        android:gravity="center"
-        android:text="recycler view"
-        android:textColor="#313131"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Top-up"
+        app:layout_constraintEnd_toEndOf="@+id/topup_button"
+        app:layout_constraintHorizontal_bias="0.46"
+        app:layout_constraintStart_toStartOf="@+id/topup_button"
+        app:layout_constraintTop_toBottomOf="@+id/topup_button" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Profile"
+        app:layout_constraintEnd_toEndOf="@+id/edit_profile_button"
+        app:layout_constraintStart_toStartOf="@+id/edit_profile_button"
+        app:layout_constraintTop_toBottomOf="@+id/edit_profile_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

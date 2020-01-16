@@ -35,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
     private static final String TAG = "LoginActivity";
     public static final String EXTRA_FNAME = "com.kylelainez.oop_project_v1.EXTRA_FNAME";
+    public static final String EXTRA_EMAIL = "com.kylelainez.oop_project_v1.EXTRA_EMAIL";
     public static final String EXTRA_ESTABLISHMENT = "com.kylelainez.oop_project_v1.EXTRA_ESTABLISHMENT";
     public static final String EXTRA_LNAME = "com.kylelainez.oop_project_v1.EXTRA_LNAME";
     public static final String EXTRA_MOBILE= "com.kylelainez.oop_project_v1.EXTRA_MOBILE";
@@ -99,6 +100,7 @@ public class LoginActivity extends AppCompatActivity {
                                                     Intent intToHome = new Intent(LoginActivity.this, MainActivity.class);
                                                     intToHome.putExtra(EXTRA_FNAME, fName);
                                                     intToHome.putExtra(EXTRA_LNAME, lName);
+                                                    intToHome.putExtra(EXTRA_EMAIL, email);
                                                     intToHome.putExtra(EXTRA_MOBILE, mobileNumber);
                                                     startActivity(intToHome);
                                                 }else{

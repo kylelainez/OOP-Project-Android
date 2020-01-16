@@ -1,10 +1,8 @@
 package com.kylelainez.oop_project_v1;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +11,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import java.util.Timer;
@@ -28,7 +25,7 @@ public class HomeFragment extends Fragment {
     private View view;
     private TextView name;
     private static final String TAG = "HomeFragment";
-    private String fName, lName, mobileNumber;
+    private String fName, lName, mobileNumber, email;
 
 
     @Nullable
@@ -44,6 +41,7 @@ public class HomeFragment extends Fragment {
         Intent intent = getActivity().getIntent();
         fName = intent.getStringExtra(LoginActivity.EXTRA_FNAME);
         lName = intent.getStringExtra(LoginActivity.EXTRA_LNAME);
+        email = intent.getStringExtra(LoginActivity.EXTRA_EMAIL);
         mobileNumber = intent.getStringExtra(LoginActivity.EXTRA_MOBILE);
 
         name.setText(fName + " " + lName);
