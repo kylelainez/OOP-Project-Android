@@ -108,19 +108,59 @@ public class info_layout extends Activity implements RecyclerViewAdapter.ItemCli
     public void setValues(){
         titleText.setText(title);
         snippetText.setText(snippet);
+
+        // Restaurants
+
         if (title.equals("Jollibee Pureza"))
-            imageView.setImageResource(R.drawable.jollibee);
+            imageView.setImageResource(R.drawable.il_jb);
         else if (title.equals("Chowking"))
-            imageView.setImageResource(R.drawable.chowking);
+            imageView.setImageResource(R.drawable.il_ck);
+        else if (title.equals("Aling Banang"))
+            imageView.setImageResource(R.drawable.il_ab);
         else if (title.equals("KFC Pureza"))
-            imageView.setImageResource(R.drawable.kfc);
-//        else if (title.equals("Dunkin Donut"))
-//            imageView = R.drawable.dunkin;
-//        else if (title.equals("Infinity"))
-//            imageView = R.drawable.infinity;
-//        else if (title.equals("Labahan ni Juan Laundry Shop"))
-//            imageView = R.drawable.labahan_ni_juan;
-//        else if (title.equals("7-Eleven"))
-//            imageView = R.drawable.seven_eleven;
+            imageView.setImageResource(R.drawable.il_kfc);
+        else if (title.equals("Dunkin' Donuts"))
+            imageView.setImageResource(R.drawable.il_dd);
+
+        // Stores
+
+        else if (title.equals("7-Eleven"))
+            imageView.setImageResource(R.drawable.il_711);
+        else if (title.equals("Easy Vape Shop Manila"))
+            imageView.setImageResource(R.drawable.il_vs);
+        else if (title.equals("Ajay's Puregold Mini-mart"))
+            imageView.setImageResource(R.drawable.il_pg);
+        else if (title.equals("Williard Enterprise"))
+            imageView.setImageResource(R.drawable.il_we);
+        else if (title.equals("Sampaloc Diamond Hardware"))
+            imageView.setImageResource(R.drawable.il_sdh);
+
+        //Internet shop
+
+        else if (title.equals("MOR3LUCK Internet Cafe"))
+            imageView.setImageResource(R.drawable.il_cs);
+        else if (title.equals("Log-Me-In Internet Cafe"))
+            imageView.setImageResource(R.drawable.il_cs);
+        else if (title.equals("263 Computer Shop"))
+            imageView.setImageResource(R.drawable.il_cs);
+        else if (title.equals("Infinity"))
+            imageView.setImageResource(R.drawable.il_cs);
+        else if (title.equals("ORB Internet Cafe"))
+            imageView.setImageResource(R.drawable.il_cs);
+
+        //Laundry
+
+        else if (title.equals("MOR3LUCK Internet Cafe"))
+            imageView.setImageResource(R.drawable.il_laundry);
+        else if (title.equals("Log-Me-In Internet Cafe"))
+            imageView.setImageResource(R.drawable.il_laundry);
+        else if (title.equals("263 Computer Shop"))
+            imageView.setImageResource(R.drawable.il_laundry);
+        else if (title.equals("Infinity"))
+            imageView.setImageResource(R.drawable.il_laundry);
+        else if (title.equals("ORB Internet Cafe"))
+            imageView.setImageResource(R.drawable.il_laundry);
+
+
     }
 }
