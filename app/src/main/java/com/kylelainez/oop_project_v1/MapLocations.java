@@ -23,7 +23,7 @@ public class MapLocations {
     private MarkerOptions asd = new MarkerOptions()
             .position(new LatLng(14.601379, 121.004622))
             .anchor(0.5f, 0.5f)
-            .title("Jollibee Pureza")
+            .title("Jollibee")
             .snippet("Open 24 Hours");
 
 //    public int getRestaurants(){
@@ -104,9 +104,9 @@ public class MapLocations {
     public static int getImage(String title){
         int resID = R.drawable.eat_button;
 
-        if (title.equals("Jollibee Pureza"))
+        if (title.equals("Jollibee"))
             resID = R.drawable.jollibee;
-        else if (title.equals("chowking"))
+        else if (title.equals("Chowking"))
             resID = R.drawable.chowking;
         else if (title.equals("KFC Pureza"))
             resID = R.drawable.kfc;

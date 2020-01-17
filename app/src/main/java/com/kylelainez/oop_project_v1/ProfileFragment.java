@@ -18,11 +18,14 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class ProfileFragment extends Fragment {
     ImageButton topup, editProfile;
     TextView mobile, emailAdd, wallet,name;
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-    private String email,fname,lname,fullname,contact;
+    private String email,fname,lname,fullname,contact, wallets;
     private int walletValue;
     private FirebaseAuth mFirebaseAuth;
     private FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
@@ -35,10 +38,12 @@ public class ProfileFragment extends Fragment {
         email = user.getEmail();
         mobile = view.findViewById(R.id.phone_number);
         emailAdd = view.findViewById(R.id.email);
-        wallet = view.findViewById(R.id.wallet_text);
+        wallet = view.findViewById(R.id.credit_points);
         name = view.findViewById(R.id.name_profile_home);
         mFirebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
+
+
 
         firebaseFirestore.collection("UserAuth").document(email).get()
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>(){
@@ -47,10 +52,13 @@ public class ProfileFragment extends Fragment {
                        fname = documentSnapshot.getString("FirstName");
                        lname = documentSnapshot.getString("LastName");
                        contact = documentSnapshot.getString("MobileNumber");
+                       wallets = documentSnapshot.getLong("Wallet").toString();
                        fullname = fname + " " + lname;
                        name.setText(fullname);
                        mobile.setText(contact);
                        emailAdd.setText(email);
+                       wallet.setText(wallets);
+
                     }
                 });
 
@@ -59,6 +67,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(),AddWallet.class);
+                intent.putExtra("WALLET",wallets);
                 startActivity(intent);
             }
         });

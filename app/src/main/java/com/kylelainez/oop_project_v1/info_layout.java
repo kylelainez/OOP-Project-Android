@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,7 +27,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 public class info_layout extends Activity implements RecyclerViewAdapter.ItemClickListener{
     private TextView titleText, snippetText;
@@ -78,22 +76,29 @@ public class info_layout extends Activity implements RecyclerViewAdapter.ItemCli
 
     }
 
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//
+//        mconditionRef.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//
+//                String text = dataSnapshot.getValue(String.class);
+//                animalNames.add(text);
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
+//    }
+
     @Override
-    protected void onStart() {
-        super.onStart();
-
-        mconditionRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String text = dataSnapshot.getValue(String.class);
-                animalNames.add(text);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
+    public void onBackPressed() {
+        super.onBackPressed();
+        this.finish();
     }
 
     @Override
@@ -108,7 +113,7 @@ public class info_layout extends Activity implements RecyclerViewAdapter.ItemCli
     public void setValues(){
         titleText.setText(title);
         snippetText.setText(snippet);
-        if (title.equals("Jollibee Pureza"))
+        if (title.equals("Jollibee"))
             imageView.setImageResource(R.drawable.jollibee);
         else if (title.equals("Chowking"))
             imageView.setImageResource(R.drawable.chowking);
