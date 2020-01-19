@@ -27,9 +27,9 @@
         android:background="@drawable/search_bg"
         android:digits="0123456789"
         android:ems="10"
-        android:padding="15dp"
         android:hint="ex. 500"
         android:inputType="number"
+        android:padding="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/add_value_text" />
@@ -105,9 +105,9 @@
         android:background="@drawable/search_bg"
         android:digits="0123456789"
         android:ems="10"
-        android:padding="15dp"
         android:hint="1234 5678 9012 3456"
         android:inputType="number"
+        android:padding="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/card_number_text" />
@@ -191,6 +191,7 @@
         app:layout_constraintTop_toBottomOf="@+id/cardholder_name" />
 
     <ImageButton
+        android:id="@+id/loadButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
