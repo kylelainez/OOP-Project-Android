@@ -23,7 +23,7 @@ public class MapLocations {
     private MarkerOptions asd = new MarkerOptions()
             .position(new LatLng(14.601379, 121.004622))
             .anchor(0.5f, 0.5f)
-            .title("Jollibee Pureza")
+            .title("Jollibee")
             .snippet("Open 24 Hours");
 
 //    public int getRestaurants(){
@@ -59,7 +59,7 @@ public class MapLocations {
                     .position(new LatLng(14.601109, 121.004461))
                     .anchor(0.5f, 0.5f)
                     .title("Aling Banang")
-                    .snippet("Hello, Guest! Welcome to Dunkin'!"));
+                    .snippet("Taste the newly cook silog!"));
 
 
 
@@ -192,7 +192,7 @@ public class MapLocations {
 
         // RESTAURANTS
 
-        if (title.equals("Jollibee Pureza"))
+        if (title.equals("Jollibee"))
             resID = R.drawable.mp_jabe;
         else if (title.equals("Chowking"))
             resID = R.drawable.mp_chowking;

@@ -111,7 +111,7 @@ public class info_layout extends Activity implements RecyclerViewAdapter.ItemCli
 
         // Restaurants
 
-        if (title.equals("Jollibee Pureza"))
+        if (title.equals("Jollibee"))
             imageView.setImageResource(R.drawable.il_jb);
         else if (title.equals("Chowking"))
             imageView.setImageResource(R.drawable.il_ck);
@@ -119,6 +119,7 @@ public class info_layout extends Activity implements RecyclerViewAdapter.ItemCli
             imageView.setImageResource(R.drawable.il_ab);
         else if (title.equals("KFC Pureza"))
             imageView.setImageResource(R.drawable.il_kfc);
+
         else if (title.equals("Dunkin' Donuts"))
             imageView.setImageResource(R.drawable.il_dd);
 
@@ -150,15 +151,15 @@ public class info_layout extends Activity implements RecyclerViewAdapter.ItemCli
 
         //Laundry
 
-        else if (title.equals("MOR3LUCK Internet Cafe"))
+        else if (title.equals("Laundry Shop"))
             imageView.setImageResource(R.drawable.il_laundry);
-        else if (title.equals("Log-Me-In Internet Cafe"))
+        else if (title.equals("Labahan ni Juan Laundry Shop"))
             imageView.setImageResource(R.drawable.il_laundry);
-        else if (title.equals("263 Computer Shop"))
+        else if (title.equals("Labada King"))
             imageView.setImageResource(R.drawable.il_laundry);
-        else if (title.equals("Infinity"))
+        else if (title.equals("Laundry Dry Clean"))
             imageView.setImageResource(R.drawable.il_laundry);
-        else if (title.equals("ORB Internet Cafe"))
+        else if (title.equals("Laundryhaus"))
             imageView.setImageResource(R.drawable.il_laundry);
 
 
