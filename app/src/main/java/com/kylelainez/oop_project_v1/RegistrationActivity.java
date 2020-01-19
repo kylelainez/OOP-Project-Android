@@ -106,7 +106,8 @@ public class RegistrationActivity extends AppCompatActivity {
                                             map.put("LastName", lastName);
                                             map.put("MobileNumber", mobileNumber);
                                             map.put("Wallet", wallet);
-                                            mFirebaseFirestore.collection("UserAuth").document(email)
+                                            map.put("isClient", false);
+                                        mFirebaseFirestore.collection("UserAuth").document(email)
                                                     .set(map);
                                             startActivity(new Intent(RegistrationActivity.this, LoginActivity.class));
                                         }

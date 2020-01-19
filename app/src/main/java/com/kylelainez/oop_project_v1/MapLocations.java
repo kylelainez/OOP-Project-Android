@@ -69,31 +69,31 @@ public class MapLocations {
                     .position(new LatLng(14.598644, 121.005308))
                     .anchor(0.5f, 0.5f)
                     .title("Infinity")
-                    .snippet("Open 24 Hours"));
+                    .snippet("Enjoy our high-speed internet here at Infinity!"));
 
             internetCafe[1] = googleMap.addMarker(new MarkerOptions()
                     .position(new LatLng(14.599959, 121.004814))
                     .anchor(0.5f, 0.5f)
                     .title("263 Computer Shop")
-                    .snippet("Open 24 Hours"));
+                    .snippet("Everyday, everynight play tight here at 263!"));
 
             internetCafe[2] = googleMap.addMarker(new MarkerOptions()
                     .position(new LatLng(14.598546, 121.005202))
                     .anchor(0.5f, 0.5f)
                     .title("ORB Internet Cafe")
-                    .snippet("Open 24 Hours"));
+                    .snippet("ORB fans play at ORB Cafe!"));
 
             internetCafe[3] = googleMap.addMarker(new MarkerOptions()
                     .position(new LatLng(14.601071, 121.004438))
                     .anchor(0.5f, 0.5f)
                     .title("MOR3LUCK Internet Cafe")
-                    .snippet("Open 24 Hours"));
+                    .snippet("Play 24/7 for more luck in life!"));
 
             internetCafe[4] = googleMap.addMarker(new MarkerOptions()
                     .position(new LatLng(14.600775, 121.004718))
                     .anchor(0.5f, 0.5f)
                     .title("Log-Me-In Internet Cafe")
-                    .snippet("Open 24 Hours"));
+                    .snippet("Non-stop playing, always log in here in Log-Me-In Cafe!"));
 
 
 
@@ -103,31 +103,31 @@ public class MapLocations {
                     .position(new LatLng(14.601105, 121.004802))
                     .anchor(0.5f, 0.5f)
                     .title("Labahan Ni Juan Laundry Shop")
-                    .snippet("Laundry service"));
+                    .snippet("This is the best option for laundring your clothes!"));
 
             laundry[1] = googleMap.addMarker(new MarkerOptions()
                     .position(new LatLng(14.600947, 121.004489))
                     .anchor(0.5f, 0.5f)
                     .title("Laundry Dry Clean")
-                    .snippet("Laundry service"));
+                    .snippet("Wash your clothes here 24/7"));
 
             laundry[2] = googleMap.addMarker(new MarkerOptions()
                     .position(new LatLng(14.600189, 121.004739))
                     .anchor(0.5f, 0.5f)
                     .title("Labada King")
-                    .snippet("Laundry service"));
+                    .snippet("The King of all Laundry."));
 
             laundry[3] = googleMap.addMarker(new MarkerOptions()
                     .position(new LatLng(14.602158, 121.004199))
                     .anchor(0.5f, 0.5f)
                     .title("Laundryhaus")
-                    .snippet("Laundry service"));
+                    .snippet("We care for your clothes here at Laundryhaus!"));
 
             laundry[4] = googleMap.addMarker(new MarkerOptions()
                     .position(new LatLng(14.601208, 121.006343))
                     .anchor(0.5f, 0.5f)
                     .title("Laundry Shop")
-                    .snippet("Laundry service"));
+                    .snippet("People's Best Laundry Store!"));
 
 
         } else {
@@ -136,31 +136,31 @@ public class MapLocations {
                     .position(new LatLng(14.600480, 121.004642))
                     .anchor(0.5f, 0.5f)
                     .title("7-Eleven")
-                    .snippet("Open 24 Hours"));
+                    .snippet("One of the stores near PUP-CEA."));
 
             convenienceStore[1] = googleMap.addMarker(new MarkerOptions()
                     .position(new LatLng(14.598461, 121.005050))
                     .anchor(0.5f, 0.5f)
                     .title("Ajay's Puregold Mini-Mart")
-                    .snippet("Open 24 Hours"));
+                    .snippet("One of the stores near PUP-CEA."));
 
             convenienceStore[2] = googleMap.addMarker(new MarkerOptions()
                     .position(new LatLng(14.598697, 121.005787))
                     .anchor(0.5f, 0.5f)
                     .title("Williard Enterprise")
-                    .snippet("Open 24 Hours"));
+                    .snippet("One of the stores near PUP-CEA."));
 
             convenienceStore[3] = googleMap.addMarker(new MarkerOptions()
                     .position(new LatLng(14.601449, 121.005526))
                     .anchor(0.5f, 0.5f)
                     .title("Sampaloc Diamond Hardware")
-                    .snippet("Open 24 Hours"));
+                    .snippet("One of the stores near PUP-CEA."));
 
             convenienceStore[4] = googleMap.addMarker(new MarkerOptions()
                     .position(new LatLng(14.599006, 121.004656))
                     .anchor(0.5f, 0.5f)
                     .title("Easy Vape Shop Manila")
-                    .snippet("Open 24 Hours"));
+                    .snippet("One of the stores near PUP-CEA."));
 
         }
     }
@@ -190,7 +190,7 @@ public class MapLocations {
     public static int getImage(String title){
         int resID = R.drawable.eat_button;
 
-        // RESTAURANTS
+
 
         if (title.equals("Jollibee"))
             resID = R.drawable.mp_jabe;
@@ -202,8 +202,7 @@ public class MapLocations {
             resID = R.drawable.mp_dd;
         else if (title.equals("Aling Banang"))
             resID = R.drawable.mp_ab;
-        else if (title.equals("Sampaloc Diamond Hardware"))
-            resID = R.drawable.mp_sd;
+
 
             //CONVIENCE STORES
 
@@ -215,6 +214,8 @@ public class MapLocations {
             resID = R.drawable.mp_pg;
         else if (title.equals("Williard Enterprise"))
             resID = R.drawable.mp_ws;
+        else if (title.equals("Sampaloc Diamond Hardware"))
+            resID = R.drawable.mp_sd;
 
             // COMPUTER SHOPS
 
@@ -231,7 +232,7 @@ public class MapLocations {
 
             // OTHERS
 
-        else if (title.equals("Labahan ni Juan Laundry Shop"))
+        else if (title.equals("Labahan Ni Juan Laundry Shop"))
             resID = R.drawable.mp_laundry;
         else if (title.equals("Laundryhaus"))
             resID = R.drawable.mp_laundry;
