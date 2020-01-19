@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     public Boolean LocationPermissionGranted = false;
     private static int accountLevel = 0;
 
+    private MenuItem selectedItem;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {                                             //On Application Start-up
         setTheme(R.style.AppTheme_NoActionBar);
@@ -47,8 +49,9 @@ public class MainActivity extends AppCompatActivity {
         else if (accountLevel == 1)
             bottomNavigationView.inflateMenu(R.menu.new_botnav);
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
-        if (savedInstanceState == null)
+        if (savedInstanceState == null) {
             bottomNavigationView.setSelectedItemId(R.id.home_navigation);
+        }
         isServiceOK();
         getPermission();
     }
@@ -58,6 +61,10 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     Fragment fragment = null;
+                    if (selectedItem==item) {
+                        return false;
+                    }
+                    selectedItem = item;
                     switch (item.getItemId()) {
                         case R.id.home_navigation:
                             fragment = new HomeFragment();

@@ -1,12 +1,11 @@
 package com.kylelainez.oop_project_v1;
 
-import android.media.Image;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -14,12 +13,27 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+
 public class AddWallet extends AppCompatActivity {
-    private EditText addValue;
+    private EditText addValue, creditCard, month, year, cvv;
     private TextView walletBal, newBal;
-    private String value;
+    private String email, ffname,flname,fcontactNum,fwallet;
     private ImageButton topup;
     private static final String TAG = "AddWallet";
+    private int count = 0,totalValue;
+    private HashMap<String,Object> map = new HashMap<>();
+    private FirebaseFirestore firebaseFirestore;
+    private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,9 +41,28 @@ public class AddWallet extends AppCompatActivity {
         walletBal = findViewById(R.id.current_balance_number);
         newBal = findViewById(R.id.new_balance_number);
         addValue = findViewById(R.id.add_value_input);
-        value = getIntent().getStringExtra("WALLET");
         topup = findViewById(R.id.loadButton);
-        walletBal.setText(value);
+        creditCard = findViewById(R.id.card_number_value);
+        month = findViewById(R.id.month_input);
+        year = findViewById(R.id.year_input);
+        cvv = findViewById(R.id.security_code_input);
+        firebaseFirestore = FirebaseFirestore.getInstance();
+        email = user.getEmail();
+
+        firebaseFirestore.collection("UserAuth").document(email).get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>(){
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        ffname = documentSnapshot.getString("FirstName");
+                        flname = documentSnapshot.getString("LastName");
+                        fcontactNum = documentSnapshot.getString("MobileNumber");
+                        fwallet = documentSnapshot.getLong("Wallet").toString();
+                        walletBal.setText(fwallet);
+                    }
+                });
+
+
+
 
         addValue.addTextChangedListener(new TextWatcher() {
             @Override
@@ -40,28 +73,74 @@ public class AddWallet extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if (charSequence == null || charSequence.toString().isEmpty()){
-                    newBal.setText(value);
+                    newBal.setText(fwallet);
                 }else {
                     int walletValue = Integer.parseInt(charSequence.toString());
                     Log.d(TAG, "onTextChanged: " + walletValue);
-                    int newValue = Integer.parseInt(value);
-                    Log.d(TAG, "onTextChanged: " + value);
-                    int totalValue = walletValue + newValue;
-                    newBal.setText(Integer.toString(totalValue));
+                    int newValue = Integer.parseInt(fwallet);
+                    Log.d(TAG, "onTextChanged: " + fwallet);
+                    totalValue = walletValue + newValue;
+                    newBal.setText(Long.toString(totalValue));
                 }
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
+            }
+        });
 
+        creditCard.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                int inputlength = creditCard.getText().toString().length();
+
+                if (count <= inputlength && inputlength == 4 ||
+                        inputlength == 9 || inputlength == 14){
+
+                    creditCard.setText(creditCard.getText().toString()+" ");
+
+                    int pos = creditCard.getText().length();
+                    creditCard.setSelection(pos);
+
+                } else if(count >= inputlength &&(inputlength == 4 ||
+                        inputlength == 9 || inputlength == 14)){
+                    creditCard.setText(creditCard.getText().toString()
+                            .substring(0,creditCard.getText()
+                                    .toString().length()-1));
+
+                    int pos = creditCard.getText().length();
+                    creditCard.setSelection(pos);
+                }
+                count = creditCard.getText().toString().length();
             }
         });
 
         topup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                submitInputValues();
+                finish();
             }
         });
+    }
+
+    private void submitInputValues(){
+        map.put("FirstName",ffname);
+        map.put("LastName",flname);
+        map.put("MobileNumber",fcontactNum);
+        map.put("Wallet",(totalValue));
+        map.put("isClient",false);
+        firebaseFirestore.collection("UserAuth").document(email)
+                .set(map);
     }
 }

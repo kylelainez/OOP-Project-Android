@@ -12,13 +12,12 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview"
-        android:layout_marginTop="20dp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/searchView">
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -86,7 +85,7 @@
                 android:text="@string/phone_number"
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.16"
+                app:layout_constraintHorizontal_bias="0.15"
                 app:layout_constraintStart_toEndOf="@+id/profile_picture"
                 app:layout_constraintTop_toBottomOf="@+id/name_profile_home" />
 
@@ -94,21 +93,6 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
-
-
-    <SearchView
-        android:layout_marginTop="20dp"
-        android:id="@+id/searchView"
-        android:layout_width="380dp"
-        android:layout_height="50dp"
-        android:paddingRight="8dp"
-        android:background="@drawable/search_bg"
-        android:iconifiedByDefault="false"
-        android:queryHint="Search location, name or keyword"
-        app:collapseIcon="@drawable/ic_arrow_back_white_24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/whats_hot"

@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -38,7 +39,6 @@ public class ProfileFragment extends Fragment {
         emailAdd = view.findViewById(R.id.email);
         wallet = view.findViewById(R.id.credit_points);
         name = view.findViewById(R.id.name_profile_home);
-        FirebaseAuth mFirebaseAuth = FirebaseAuth.getInstance();
         FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
 
 
@@ -68,7 +68,6 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(),AddWallet.class);
-                intent.putExtra("WALLET",wallets);
                 startActivity(intent);
             }
         });

@@ -13,6 +13,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -23,10 +27,9 @@ public class HomeFragment extends Fragment {
     private Timer timer;
     private int current_position = 0;
     private View view;
-    private TextView name;
+    private TextView name,wallet,contactNum;
     private static final String TAG = "HomeFragment";
-    private String fName, lName, mobileNumber, email;
-
+    private String fName, lName, mobileNumber, email,wallets,contact;
 
     @Nullable
     @Override
@@ -38,13 +41,30 @@ public class HomeFragment extends Fragment {
         name = view.findViewById(R.id.name_profile_home);
         createSlideShow();
 
+        wallet = view.findViewById(R.id.credit_points);
+        contactNum = view.findViewById(R.id.phone_number);
+
         Intent intent = getActivity().getIntent();
-        fName = intent.getStringExtra(LoginActivity.EXTRA_FNAME);
-        lName = intent.getStringExtra(LoginActivity.EXTRA_LNAME);
         email = intent.getStringExtra(LoginActivity.EXTRA_EMAIL);
         mobileNumber = intent.getStringExtra(LoginActivity.EXTRA_MOBILE);
+        FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
 
-        name.setText(fName + " " + lName);
+
+        firebaseFirestore.collection("UserAuth").document(email).get()
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>(){
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        contact = documentSnapshot.getString("MobileNumber");
+                        wallets = documentSnapshot.getLong("Wallet").toString();
+                        fName = documentSnapshot.getString("FirstName");
+                        lName = documentSnapshot.getString("LastName");
+                        wallet.setText(wallets);
+                        contactNum.setText(contact);
+                        name.setText(fName + " " + lName);
+
+
+                    }
+                });
 
         return view;
     }

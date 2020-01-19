@@ -58,12 +58,15 @@ public class info_layout extends Activity implements RecyclerViewAdapter.ItemCli
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
                         Log.d(TAG, "onSuccess: " + title);
                         map = documentSnapshot.getData();
-                        animalNames = new ArrayList<>(map.keySet());
-                        values = new ArrayList<>(map.values());
-                        RecyclerView recyclerView = findViewById(R.id.menu_recycler);
-                        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-                        adapter = new RecyclerViewAdapter(getApplicationContext(),animalNames,values);
-                        recyclerView.setAdapter(adapter);
+                        if (map!= null){
+                            animalNames = new ArrayList<>(map.keySet());
+                            values = new ArrayList<>(map.values());
+                            RecyclerView recyclerView = findViewById(R.id.menu_recycler);
+                            recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                            adapter = new RecyclerViewAdapter(getApplicationContext(),animalNames,values);
+                            recyclerView.setAdapter(adapter);
+                        }
+
                     }
                 })
                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
