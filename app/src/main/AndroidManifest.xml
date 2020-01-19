@@ -53,6 +53,18 @@
 
         </activity>
         <activity
+            android:name=".AddWallet"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme">
+
+        </activity>
+        <activity
+            android:name=".EditProfile"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme">
+
+        </activity>
+        <activity
             android:name=".RegistrationActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme"

@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
+    <RelativeLayout
+        android:id="@+id/loadingPanel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center" >
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true" />
+    </RelativeLayout>
+
     <TextView
         android:id="@+id/email"
         android:layout_width="wrap_content"
@@ -86,7 +98,7 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="2dp"
         android:fontFamily="@font/worksans_light"
-        android:text="@string/phone_number"
+        android:text=""
         android:textColor="#0a0a0a"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -98,7 +110,7 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="2dp"
         android:fontFamily="@font/worksans_light"
-        android:text="@string/credit_points"
+        android:text="0"
         android:textColor="#0a0a0a"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/wallet_text" />
