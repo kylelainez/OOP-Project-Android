@@ -1,9 +1,11 @@
 package com.kylelainez.oop_project_v1;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,6 +20,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private List<Object> foodPrice;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
+    private RelativeLayout relativeLayout;
+    private static final String TAG = "RecyclerViewAdapter";
 
     RecyclerViewAdapter(Context context, List<String> foodName,List<Object> foodPrice){
         this.mInflater = LayoutInflater.from(context);
@@ -29,6 +33,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = mInflater.inflate(R.layout.menu_item,parent,false);
+        relativeLayout = view.findViewById(R.id.parent_layout);
         return new ViewHolder(view);
 
     }
@@ -50,18 +55,19 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView menu_food, menu_price;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             menu_food = itemView.findViewById(R.id.menu_food);
             menu_price = itemView.findViewById(R.id.menu_price);
             itemView.setOnClickListener(this);
-
         }
 
         @Override
         public void onClick(View view) {
             if (mClickListener != null)
-                mClickListener.onItemClick(view, getAdapterPosition());
+                mClickListener.onItemClick(view,getAdapterPosition());
+            Log.d(TAG, "onClick: this item is cliked");
         }
     }
 
@@ -74,7 +80,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     public interface ItemClickListener{
-        void onItemClick(View view,int position);
+        void onItemClick(View view, int position);
     }
 }
 

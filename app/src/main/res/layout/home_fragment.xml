@@ -31,7 +31,7 @@
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:srcCompat="@drawable/avatar1" />
+                    android:src="@drawable/blank_pic" />
 
                 <TextView
                     android:id="@+id/name_profile_home"
@@ -113,7 +113,6 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.027"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.viewpager.widget.ViewPager

@@ -7,6 +7,18 @@
     android:background="#FFFFFF"
     android:padding="15dp">
 
+    <RelativeLayout
+        android:id="@+id/loadingPanelAddWallet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center" >
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true" />
+    </RelativeLayout>
+
     <TextView
         android:id="@+id/add_value_text"
         android:layout_width="wrap_content"

@@ -78,36 +78,14 @@ public class info_layout extends Activity implements RecyclerViewAdapter.ItemCli
 
 
     }
-
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//
-//        mconditionRef.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//
-//                String text = dataSnapshot.getValue(String.class);
-//                animalNames.add(text);
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
-//    }
-
+    
     @Override
     public void onBackPressed() {
         super.onBackPressed();
         this.finish();
     }
 
-    @Override
-    public void onItemClick(View view, int position) {
-        Toast.makeText(this, "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
-    }
+
 
     public static void getMarkerInfo(String title, String snippet){
        info_layout.title = title;
@@ -171,5 +149,10 @@ public class info_layout extends Activity implements RecyclerViewAdapter.ItemCli
             imageView.setImageResource(R.drawable.il_laundry);
 
 
+    }
+
+    @Override
+    public void onItemClick(View view ,int position) {
+        Log.d(TAG, "onItemClick: " + position);
     }
 }

@@ -51,6 +51,9 @@ public class EditProfile extends AppCompatActivity {
                         fname.setText(ffname);
                         lname.setText(flname);
                         contactNum.setText(fcontactNum);
+                        if (ffname!=null && !ffname.isEmpty()){
+                            findViewById(R.id.loadingPanelEditProfile).setVisibility(View.GONE);
+                        }
                     }
                 });
 

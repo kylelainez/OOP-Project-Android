@@ -101,6 +101,7 @@ public class RegistrationActivity extends AppCompatActivity {
                                         if (!task.isSuccessful()) {
                                             Toast.makeText(RegistrationActivity.this, "Sign Up Unsuccessful",
                                                     Toast.LENGTH_SHORT);
+
                                         } else {
                                             map.put("FirstName", firstName);
                                             map.put("LastName", lastName);

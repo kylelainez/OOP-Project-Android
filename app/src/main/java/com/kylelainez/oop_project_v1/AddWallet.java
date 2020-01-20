@@ -58,6 +58,10 @@ public class AddWallet extends AppCompatActivity {
                         fcontactNum = documentSnapshot.getString("MobileNumber");
                         fwallet = documentSnapshot.getLong("Wallet").toString();
                         walletBal.setText(fwallet);
+                        newBal.setText(fwallet);
+                        if (fwallet!=null && !fwallet.isEmpty()){
+                            findViewById(R.id.loadingPanelAddWallet).setVisibility(View.GONE);
+                        }
                     }
                 });
 

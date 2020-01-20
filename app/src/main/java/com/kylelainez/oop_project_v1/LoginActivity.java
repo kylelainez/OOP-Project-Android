@@ -53,7 +53,6 @@ public class LoginActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         btnSignIn = findViewById(R.id.login_button);
         tvSignUp = findViewById(R.id.create_account);
-        clientSignUp = findViewById(R.id.client_register);
 
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -68,6 +67,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 final String email = emailId.getText().toString();
                 String pwd = password.getText().toString();
+                findViewById(R.id.loadingPanellogin).setVisibility(View.VISIBLE);
                 if (email.isEmpty()) {
                     emailId.setError("Please enter email id");
                     emailId.requestFocus();
@@ -82,6 +82,7 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (!task.isSuccessful()) {
+                                findViewById(R.id.loadingPanellogin).setVisibility(View.GONE);
                                 Toast.makeText(LoginActivity.this, "Login Error, Please Login Again",
                                         Toast.LENGTH_SHORT).show();
                             } else {
@@ -103,6 +104,7 @@ public class LoginActivity extends AppCompatActivity {
                                                     intToHome.putExtra(EXTRA_EMAIL, email);
                                                     intToHome.putExtra(EXTRA_MOBILE, mobileNumber);
                                                     startActivity(intToHome);
+                                                    finish();
                                                 }else{
                                                     //Start Client Activity
                                                     Intent intToHome = new Intent(LoginActivity.this, MainActivity.class);
@@ -119,6 +121,7 @@ public class LoginActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(LoginActivity.this, "Error Occurred!", Toast.LENGTH_SHORT).show();
                 }
+
             }
         });
 
@@ -130,13 +133,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        clientSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, RegistrationClientActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
     @Override

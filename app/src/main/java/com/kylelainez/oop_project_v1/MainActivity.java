@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int Request_Code = 1234;
     public Boolean LocationPermissionGranted = false;
     private static int accountLevel = 0;
+    public BottomNavigationView bottomNavigationView;
 
     private MenuItem selectedItem;
 
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         setTheme(R.style.AppTheme_NoActionBar);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        BottomNavigationView bottomNavigationView = findViewById(R.id.nav_view);
+        bottomNavigationView = findViewById(R.id.nav_view);
         bottomNavigationView.getMenu().clear();
         if (accountLevel ==0)
             bottomNavigationView.inflateMenu(R.menu.bottom_nav_menu);

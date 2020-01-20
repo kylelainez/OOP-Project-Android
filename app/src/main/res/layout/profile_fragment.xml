@@ -70,7 +70,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@drawable/avatar1" />
+            android:src="@drawable/blank_pic" />
 
         <TextView
             android:id="@+id/name_profile_home"

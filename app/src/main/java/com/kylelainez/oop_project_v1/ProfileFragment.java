@@ -28,6 +28,7 @@ public class ProfileFragment extends Fragment {
     private String email ,fname,lname,fullname,contact, wallets;
     private int walletValue;
 
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable final Bundle savedInstanceState) {

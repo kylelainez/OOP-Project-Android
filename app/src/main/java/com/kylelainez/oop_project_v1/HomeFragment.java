@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -39,6 +40,7 @@ public class HomeFragment extends Fragment {
         customSwipeAdapter = new CustomSwipeAdapter(getActivity());
         viewPager.setAdapter(customSwipeAdapter);
         name = view.findViewById(R.id.name_profile_home);
+
         createSlideShow();
 
         wallet = view.findViewById(R.id.credit_points);
@@ -65,7 +67,6 @@ public class HomeFragment extends Fragment {
 
                     }
                 });
-
         return view;
     }
 //    private PagerAdapter buildAdapter() {
