@@ -8,8 +8,8 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
@@ -20,6 +20,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity
+            android:name=".Welcome"
+            android:label="@string/title_activity_welcome"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <uses-library
             android:name="org.apache.http.legacy"
@@ -36,49 +40,45 @@
             android:resource="@array/preloaded_fonts" /> <!-- API Key for Google Maps Services -->
         <meta-data
             android:name="com.google.android.gms.vision.DEPENDENCIES"
-            android:value="barcode"/>
+            android:value="barcode" />
+
         <activity
             android:name=".LoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme"></activity>
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme"></activity>
+        <activity
+            android:name=".AddWallet"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme"></activity>
+        <activity
+            android:name=".EditProfile"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme"></activity>
+        <activity
+            android:name=".RegistrationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme"></activity>
+        <activity
+            android:name=".RegistrationClientActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme"></activity>
+        <activity
+            android:name=".info_layout"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".WelcomeActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".MainActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/SplashTheme">
-
-        </activity>
-        <activity
-            android:name=".AddWallet"
-            android:screenOrientation="portrait"
-            android:theme="@style/SplashTheme">
-
-        </activity>
-        <activity
-            android:name=".EditProfile"
-            android:screenOrientation="portrait"
-            android:theme="@style/SplashTheme">
-
-        </activity>
-        <activity
-            android:name=".RegistrationActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/SplashTheme"
-            >
-        </activity>
-        <activity
-            android:name=".RegistrationClientActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/SplashTheme"
-            >
-        </activity>
-        <activity
-            android:name=".info_layout"
-                android:screenOrientation="portrait" />
-
     </application>
+
 </manifest>

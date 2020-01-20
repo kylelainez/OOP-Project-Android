@@ -41,6 +41,8 @@ dependencies {
     //QR Scanner
     implementation 'com.google.android.gms:play-services-vision:18.0.0'
     implementation 'com.google.firebase:firebase-firestore:21.1.1'
+
+    implementation 'com.airbnb.android:lottie:2.8.0'
 }
 
 apply plugin: 'com.google.gms.google-services'
