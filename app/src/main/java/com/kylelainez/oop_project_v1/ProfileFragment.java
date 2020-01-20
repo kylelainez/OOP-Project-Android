@@ -18,27 +18,30 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class ProfileFragment extends Fragment {
-    ImageButton topup, editProfile;
-    TextView mobile, emailAdd, wallet,name;
-    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-    private String email,fname,lname,fullname,contact;
+    private TextView mobile, emailAdd, wallet,name;
+    private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    private String email ,fname,lname,fullname,contact, wallets;
     private int walletValue;
-    private FirebaseAuth mFirebaseAuth;
-    private FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable final Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.profile_fragment, container, false);
-        topup = view.findViewById(R.id.topup_button);
-        editProfile = view.findViewById(R.id.edit_profile_button);
+        final View view = inflater.inflate(R.layout.profile_fragment, container, false);
+        ImageButton topup = view.findViewById(R.id.topup_button);
+        ImageButton editProfile = view.findViewById(R.id.edit_profile_button);
         email = user.getEmail();
         mobile = view.findViewById(R.id.phone_number);
         emailAdd = view.findViewById(R.id.email);
-        wallet = view.findViewById(R.id.wallet_text);
+        wallet = view.findViewById(R.id.credit_points);
         name = view.findViewById(R.id.name_profile_home);
-        mFirebaseAuth = FirebaseAuth.getInstance();
-        firebaseFirestore = FirebaseFirestore.getInstance();
+        FirebaseAuth mFirebaseAuth = FirebaseAuth.getInstance();
+        FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+
+
 
         firebaseFirestore.collection("UserAuth").document(email).get()
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>(){
@@ -47,10 +50,16 @@ public class ProfileFragment extends Fragment {
                        fname = documentSnapshot.getString("FirstName");
                        lname = documentSnapshot.getString("LastName");
                        contact = documentSnapshot.getString("MobileNumber");
+                       wallets = documentSnapshot.getLong("Wallet").toString();
                        fullname = fname + " " + lname;
                        name.setText(fullname);
                        mobile.setText(contact);
                        emailAdd.setText(email);
+                       wallet.setText(wallets);
+                       if (wallets!=null && !wallets.isEmpty()){
+                           view.findViewById(R.id.loadingPanel).setVisibility(View.GONE);
+                       }
+
                     }
                 });
 
@@ -59,6 +68,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(),AddWallet.class);
+                intent.putExtra("WALLET",wallets);
                 startActivity(intent);
             }
         });
