@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:id="@+id/welcome_activity">
 
     <ImageView
         android:id="@+id/graphic"
@@ -15,6 +15,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="91dp"
+        android:layout_height="121dp"
+        app:layout_constraintBottom_toBottomOf="@+id/graphic"
+        app:layout_constraintEnd_toEndOf="@+id/graphic"
+        app:layout_constraintHorizontal_bias="0.153"
+        app:layout_constraintStart_toStartOf="@+id/graphic"
+        app:layout_constraintTop_toTopOf="@+id/graphic"
+        app:layout_constraintVertical_bias="0.601"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="2508-pumped-up.json"
+        app:lottie_loop="true" />
 
     <TextView
         android:id="@+id/tap_anywhere"
@@ -29,5 +42,11 @@
         app:layout_constraintStart_toStartOf="@id/graphic"
         app:layout_constraintTop_toTopOf="@id/graphic"
         app:layout_constraintVertical_bias="0.945" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/tap_layout"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
