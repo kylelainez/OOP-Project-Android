@@ -146,5 +146,5 @@ public class AddWallet extends AppCompatActivity {
         map.put("isClient",false);
         firebaseFirestore.collection("UserAuth").document(email)
                 .set(map);
-    }
+}
 }

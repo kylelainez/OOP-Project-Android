@@ -22,6 +22,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private ItemClickListener mClickListener;
     private RelativeLayout relativeLayout;
     private static final String TAG = "RecyclerViewAdapter";
+    private WalletBuy walletBuy = new WalletBuy();
 
     RecyclerViewAdapter(Context context, List<String> foodName,List<Object> foodPrice){
         this.mInflater = LayoutInflater.from(context);
@@ -67,7 +68,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public void onClick(View view) {
             if (mClickListener != null)
                 mClickListener.onItemClick(view,getAdapterPosition());
-            Log.d(TAG, "onClick: this item is cliked");
+            Log.d(TAG, "onClick: this item is cliked " + getAdapterPosition());
+            Log.d(TAG, "onClick: price  " + foodPrice.get(getAdapterPosition()));
+            walletBuy.subtract(foodPrice.get(getAdapterPosition()));
         }
     }
 
