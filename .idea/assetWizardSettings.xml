@@ -34,8 +34,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="ic_welcome_graphic" />
-                            <entry key="sourceFile" value="C:\Users\kurtdariel\Desktop\OOP\Assets\welcome_graphic.svg" />
+                            <entry key="outputName" value="ic_dashboard_blue" />
+                            <entry key="sourceFile" value="C:\Users\kurtdariel\Desktop\OOP\Assets\dashboard_blue.svg" />
                           </map>
                         </option>
                       </PersistentState>
