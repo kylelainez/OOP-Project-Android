@@ -34,8 +34,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="ic_dashboard_blue" />
-                            <entry key="sourceFile" value="C:\Users\kurtdariel\Desktop\OOP\Assets\dashboard_blue.svg" />
+                            <entry key="outputName" value="ic_place_order" />
+                            <entry key="sourceFile" value="C:\Users\kurtdariel\Desktop\OOP\Assets\place_order.svg" />
                           </map>
                         </option>
                       </PersistentState>
