@@ -97,13 +97,18 @@
 
     </RadioGroup>
 
-    <EditText
-        android:id="@+id/editText2"
+    <!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="SAME DAY TRANSACTIONS ONLY"-->
+<!--        />-->
+
+    <TimePicker
+        android:id="@+id/timePicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:ems="10"
-        android:inputType="date"
+        android:layout_marginTop="24dp"
+        android:timePickerMode="spinner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
@@ -111,12 +116,12 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="48dp"
         android:background="@color/transparent"
         android:src="@drawable/ic_place_order"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/timePicker" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

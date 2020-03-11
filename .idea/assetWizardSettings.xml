@@ -34,8 +34,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="ic_redeem_now" />
-                            <entry key="sourceFile" value="C:\Users\kurtdariel\Desktop\OOP\Assets\redeem_now.svg" />
+                            <entry key="outputName" value="ic_cart_button" />
+                            <entry key="sourceFile" value="C:\Users\kurtdariel\Desktop\OOP\Assets\cart_button.svg" />
                           </map>
                         </option>
                       </PersistentState>
